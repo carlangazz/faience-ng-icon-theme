@@ -1,0 +1,5 @@
+[Icon Theme]
+Name=Faience-ng
+Inherits=Adwaita,gnome,hicolor
+Comment=Faience Next Generation
+Directories=

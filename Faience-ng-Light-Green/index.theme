@@ -1,0 +1,5 @@
+[Icon Theme]
+Name=Faience-ng-Light-Green
+Inherits=Faience-ng-Green,Faience-ng-Light,Faience-ng
+Comment=Faience Next Generation (Light-Green)
+Directories=

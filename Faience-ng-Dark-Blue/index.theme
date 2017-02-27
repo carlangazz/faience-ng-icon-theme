@@ -1,0 +1,5 @@
+[Icon Theme]
+Name=Faience-ng-Dark-Blue
+Inherits=Faience-ng-Blue,Faience-ng-Dark,Faience-ng
+Comment=Faience Next Generation (Dark-Blue)
+Directories=

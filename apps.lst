@@ -1,0 +1,321 @@
+abiword abiword_48
+accessories-calculator calc galculator gnome-calculator speedcrunch categories:applications-mathematics kcalc
+accessories-character-map gnome-character-map gucharmap kcharselect
+accessories-dictionary gnome-dictionary stardict goldendict audiobook xfce4-dict
+accessories-text-editor gnome-word kedit mousepad text-editor xfce-edit
+acroread AdobeReader AdobeReader8 AdobeReader9 AdobeReader10
+activity-log-manager
+adobe-air AdobeAIR
+amarok
+amazon-mp3-store-source amazon-store wwwamazoncom-www.amazon.com wwwamazoncouk-www.amazon.co.uk wwwamazonfr-www.amazon.fr
+amule
+anjuta
+anki
+application-default-icon mimetypes:application-x-executable
+atom
+audacity aqualung
+audacious
+autoplus easylife
+avant-window-navigator awn-settings
+awn-settings
+baobab
+blender
+bluefish bluefish-icon
+bluegriffon
+brasero nautilus-cd-burner k3b xfburn
+bug-buddy abrt gnome-abrt categories:applications-debugging
+caffeine xfce4-time-out-plugin
+calibre-gui
+checkbox
+comix
+computerjanitor bleachbit
+config-users kuser system-config-users susers system-users
+ccc_large
+ccsm simple-ccsm
+cheese
+chromium-browser chromium
+chromium-browser2
+clementine application-x-clementine
+clock cairo-clock gnome-panel-clock gnome-set-time rclock stock_alarm time xfce4-clock xfce-schedule gnome-clocks mate-panel-clock
+credentials-preferences
+deadbeef
+defcon
+deja-dup
+deluge deluge-torrent ktorrent
+desktop-effects wmtweaks
+desura
+devede
+devhelp
+dia
+dc++ DC++
+docky
+dropbox
+dvdrip
+easytag EasyTAG_icon
+eclipse
+ekiga
+ejecter
+emacs emacs23
+emerald-theme-manager-icon
+emesene
+empathy
+eog gthumb gwenview gpicview ristretto categories:applications-viewers mate-eyes-applet eom
+evernote nixnote
+evince atril
+evolution evolution-mail kmail sylpheed claws-mail xfce-mail categories:applications-mail
+evolution-calendar gnome-calendar office-calendar office-date plan system-config-date ximian-evolution-calendar stock_calendar x-office-calendar korganizer xfcalendar mimetypes:vcalendar
+evolution-tasks gtg stock_task xfce4-clipman-plugin
+exaile
+f-spot
+facebook goa-account-facebook
+fedora-release-notes
+file-roller utilities-file-archiver xarchiver engrampa
+filezilla
+firefox mozilla-firefox firefox-3.0 firefox-3.5 firefox-4.0
+firefox-original
+flash adobeflashplugin flash-player-properties flashplayer
+flashplayer adobe-flashplayer
+flickr postr kflickr
+frostwire
+fusion-icon
+gajim
+gbrainy
+gcolor2
+gcstar
+gdm-setup gdm user_auth
+geany
+gimp mtpaint categories:applications-painting
+gksu-root-terminal gksu-debian
+glade glade-3 gazpacho gazpacho-icon categories:applications-interfacedesign
+glippy status:glippy-panel
+gloobus gloobus-preview covergloobus
+gmail gmailwatcher checkgmail
+gnome-about-logo gnome-logo-icon-transparent mate-panel-notification-area
+gnome-activity-journal zeitgeist
+gnome-aisleriot categories:applications-cardgames
+gnome-contacts addressbook office-address-book x-office-address-book actions:address-book-new actions:stock_new-address-book mimetypes:x-office-address-book
+gnome-display-properties display-capplet preferences-desktop-display system-config-displayca mate-preferences-desktop-display msd-xrandr
+gnome-do
+gnome-documents
+gnome-freecell
+gnome-glchess pychess glchess gnome-chess
+gnome-glines glines five-or-more
+gnome-gnect gnect four-in-a-row
+gnome-gnibbles gnibbles gnome-nibbles
+gnome-iagno iagno
+gnome-klotski gnotski
+gnome-lightsoff lightsoff
+gnome-logout gnome-log-out gnome-session-logout xfsm-logout system-log-out
+gnome-mahjongg mahjongg
+gnome-mines gnomine
+gnome-network-properties mate-network-properties
+gnome-nettool gnome-networktool zenmap mate-netspeed-applet
+gnome-panel
+gnome-panel-launcher gnome-desktop-item-edit preferences-desktop-launch-feedback mate-desktop-item-edit mate-panel-launcher
+gnome-quadrapassel quadrapassel
+gnome-robots gnobots2
+gnome-screenshot applets-screenshooter ksnapshot screenie screenie-qt
+gnome-session session-properties xfce4-session mate-session-properties
+gnome-settings-default-applications preferences-desktop-default-applications
+gnome-shutdown boot gnome-session-halt system-shut-down xfsm-shutdown system-shutdown
+gnome-sound-recorder
+gnome-sticky-notes-applet evolution-memos gnome-note gnote sticky-notes stock_insert-note stock_notes tomboy-note xfce4-notes-plugin bijiben mate-sticky-notes-applet
+gnome-sudoku
+gnome-swell-foop gnome-samegnome
+gnome-tali gtali tali categories:applications-boardgames
+gnome-tetravex gnotravex
+gnumeric webservice-office-zoho-sheet
+gnucash-icon
+google goa-account-google
+googleearth google-earth
+googleplus google-plus
+google-chrome google-chrome-unstable
+google-chrome2
+googlemusicframe
+gparted mate-disk-usage-analyzer
+goa-panel goa-account
+gtk-info gnome-info gnome-status indicator-applet stock_view-details xfce-system-info mate-notification-properties
+gtk-recordmydesktop
+guake guake-notification guake-prefs
+guayadeque
+gwibber
+haguichi
+hardinfo sysprof-icon mate-sensors-applet xfce4-cpugraph-plugin xfce4-cpufreq-plugin xfce-sensors
+help-browser gnochm gnome-help gnome-unknown gtk-help help khelpcenter stock_help stock_unknown susehelpcenter xfce-man xfce_unknown gnome-help browser-help
+homebank grisbi
+ibus ibus-setup
+iceweasel
+icedove
+im-chooser eekboard
+imagemagick display.im6
+indicator-weather
+inkscape
+internet-archive
+jamendo
+jdownloader
+jockey jockey-kde categories:applications-electronics
+jokosher
+keepassx
+kupfer
+lastfm last-fm lastfm-audioscrobbler as-icon as-powered
+leafpad kate
+library-internet-radio gnomeradio kradio kradio4 radio
+libreoffice-base libreoffice3-base libreoffice34-base
+libreoffice-calc libreoffice3-calc libreoffice34-calc
+libreoffice-draw libreoffice3-draw libreoffice34-draw
+libreoffice-impress libreoffice3-impress libreoffice34-impress
+libreoffice-main libreoffice-startcenter libreoffice-template libreoffice3-template libreoffice34-template libreoffice3-startcenter libreoffice34-startcenter libreoffice-math
+libreoffice-math libreoffice3-math libreoffice34-math
+libreoffice-writer libreoffice3-writer libreoffice34-writer
+liferea internet-news-reader akregator rssowl status:news-feed
+logviewer utilities-log-viewer logview gnome-logs
+magnatune
+mail-notification mailnag
+mcomix
+media-player-banshee banshee banshee-1
+meld
+mendeley mendeleydesktop
+menu-editor alacarte gnome-gmenu drakmenustyle xfce4-menueditor mozo
+midori
+minitube
+minitunes itunes
+miro miro-guide-source
+mitter
+monodevelop categories:applications-monodevelopment
+mplayer gnome-mplayer smplayer kmplayer kplayer
+mypaint
+nautilus-actions nautilus-actions-config-tool
+netbeans
+nm-stage01-connecting01 nm-stage02-connecting01 nm-stage03-connecting01 nm-vpn-connecting01
+nm-stage01-connecting02 nm-stage02-connecting02 nm-stage03-connecting02 nm-vpn-connecting02
+nm-stage01-connecting03 nm-stage02-connecting03 nm-stage03-connecting03 nm-vpn-connecting03
+nm-stage01-connecting04 nm-stage02-connecting04 nm-stage03-connecting04 nm-vpn-connecting04
+nm-stage01-connecting05 nm-stage02-connecting05 nm-stage03-connecting05 nm-vpn-connecting05
+nm-stage01-connecting06 nm-stage02-connecting06 nm-stage03-connecting06 nm-vpn-connecting06
+nm-stage01-connecting07 nm-stage02-connecting07 nm-stage03-connecting07 nm-vpn-connecting07
+nm-stage01-connecting08 nm-stage02-connecting08 nm-stage03-connecting08 nm-vpn-connecting08
+nm-stage01-connecting09 nm-stage02-connecting09 nm-stage03-connecting09 nm-vpn-connecting09
+nm-stage01-connecting10 nm-stage02-connecting10 nm-stage03-connecting10 nm-vpn-connecting10
+nm-stage01-connecting11 nm-stage02-connecting11 nm-stage03-connecting11 nm-vpn-connecting11
+nvidia-settings nvidia-current-settings
+onboard
+openttd
+ooo-base ooo-base3.0 openofficeorg3.0-base openofficeorg3-base openofficeorg-base
+ooo-calc ooo-calc24 ooo-calc2 ooo-calc3.0 openofficeorg24-calc openofficeorg3.0-calc openofficeorg3-calc openofficeorg-calc
+ooo-draw ooo-draw3.0 openofficeorg3.0-draw openofficeorg3-draw openofficeorg-draw
+ooo-impress ooo-impress24 ooo-impress2 ooo-impress3.0 openofficeorg24-impress openofficeorg3.0-impress openofficeorg3-impress openofficeorg-impress
+ooo-math ooo-math3.0 openofficeorg3.0-math openofficeorg3-math openofficeorg-math
+ooo-printeradmin openofficeorg3.0-printeradmin openofficeorg3-printeradmin openofficeorg-printeradmin libreoffice-printeradmin libreoffice3-printeradmin  libreoffice34-printeradmin
+ooo-template ooo-template3.0 openofficeorg3.0-template openofficeorg3-template openofficeorg-template
+ooo-writer office-writer ooo-writer24 ooo-writer2 ooo-writer3.0 openofficeorg24-writer openofficeorg3.0-writer openofficeorg3-writer openofficeorg-writer
+openbravo-erp
+openerp-client
+openjdk-6 openjdk-7 java-1.8.0 sun-java6 sun-java7 sun-java sun-javaws sun-jcontrol categories:applications-java system-switch-java
+openshot
+opera opera-browser
+opera-widget-manager opera-widget
+palimpsest gnome-device-manager gnome-disks mate-disk
+partner preferences-management-service
+phatch
+phatch-inspector
+picasa picasa32x32 picasa-fontcfg
+picasa-fontcfg
+pidgin kopete
+pino
+pithos
+pitivi
+playonlinux
+ppa
+poedit gnome-translate
+podcast library-podcast gpodder
+preferences-color
+preferences-desktop-accessibility accessibility-directory access ax-applet gnome-settings-accessibility-technologies orca
+preferences-desktop-wallpaper background gnome-settings-background wallpaper xfce4-backdrop
+preferences-desktop-keyboard
+preferences-desktop-keyboard-shortcuts key_bindings ktouch klavaro gnome-settings-keybindings
+preferences-desktop-locale config-language locale
+preferences-desktop-remote-desktop gdm-xnest gnome-remote-desktop tsclient vinagre remmina krfb
+preferences-desktop-screensaver kscreensaver screensaver xscreensaver
+preferences-desktop-sound gnome-audio gnome-settings-sound gnome-sound-properties gnome-volume-control multimedia-volume-control preferences-desktop-multimedia preferences-sound xfce-sound xfce4-sound xfce4-mixer volume-knob multimedia knotify kcmsound gnome-mixer arts
+preferences-desktop-theme gnome-settings-theme style xfce-ui
+preferences-system-bluetooth bluetooth bluetooth-48 bluetoothradio blueman blueradio blueradio-48 bt-logo devices:blueman-device
+preferences-system-firewall gufw gufw_menu ufw-frontends firestarter
+preferences-system-windows gnome-window-manager kcmkwm kwin xfwm4 window-manager mate-panel-window-list mate-panel-window-menu
+qtassistant assistant
+qtdesigner designer
+qtlinguist linguist
+qtcreator qtcreator_logo_32 qtassistant qtdesigner qtlinguist
+radiotray
+rhythmbox gmusicbrowser gnome-music
+screenruler-icon screenruler
+scribes
+scribus
+setroubleshoot_icon
+setroubleshoot_red_icon
+shotwell
+shutter
+skype
+spotify spotify-linux-48x48 spotify-linux-512x512
+softwarecenter
+softwarecenter-debian
+softwarecenter-ubuntu softwarecenter
+software-properties edit-urpm-sources gpk-repo pk-package-sources x-system-software-sources status:aptdaemon-update-cache
+sound-juicer
+soundconverter oggconvert
+steam  steampowered
+stellarium
+stock_keyring badge-small keyring-manager password revelation seahorse seahorse-preferences activity-log-manager gksu status:dialog-password  preferences-system-privacy
+synapse
+synaptic gnome-app-install gnome-package system-installer system-software-install system-installer system-software-installer drakstats gdebi gdeb gnome-apt kentoo kpackage kynpatic package-manager-icon pirut porthole rpmdrake update-notifier yumex status:aptdaemon-download
+system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja
+system-switch-java
+telepathy
+terminator
+Thunar thunar
+time-admin config-date preferences-system-time clocks timer-applet xfce4-timer
+tomboy knotes xpad
+totem kaffeine parole
+thunderbird mozilla-thunderbird thunderbird-icon
+tracker
+transmission
+truecrypt
+tvtime me-tv freetuxtv
+twitter twitux gtwitter goa-account-twitter Twitter-twitter.com status:applications-microblogging-panel
+ubuntu-tweak
+ubuntuone ubuntuone-client ubuntuone-installer
+umusicstore musicstore_icon
+ubuntuone-music
+unknown-channel
+update-manager mandrivaupdate system-software-update gpk-prefs pup zen-icon status:aptdaemon-upgrade
+usb-creator-gtk usb-creator
+user-info system-config-authentication mimetypes:text-x-vcard actions:contact-new
+usermount mm
+utilities-terminal bash Etermutilities-terminal gnome-eterm gnome-term gnome-terminal gnome-xterm hotwire konsole lxterminal openterm terminal Terminal tilda xfce-terminal
+utilities-system-monitor gnome-monitor gnome-system-monitor htop ksysguard mate-cpu-frequency-applet mate-power-statistics
+vim gvim
+virtualbox virtualbox-ose VBox
+vlc
+web-browser browser gnome-web-browser redhat-web-browser internet-web-browser categories:applications-webbrowsers palemoon
+wikipedia
+wine
+wine-notepad notepad
+wine-uninstaller msiexec
+wine-winecfg winecfg
+wine-winetricks winetricks
+wireshark hi48-app-wireshark
+wordpress
+workspace-switcher gnome-panel-workspace-switcher xfce4-workspaces mate-panel-workspace-switcher
+WorldOfGoo
+Wunderlist wunderlist
+wxbanker gnucash-icon emblems:emblem-sales
+xbmc
+xchat xchat-gnome xchat-mini smuxi-frontend-gnome polari hexchat
+xfce4-appfinder mate-system-log
+xfce4-panel
+xine
+xournal
+xterm xterm_32x32 xterm-color_32x32 xterm_48x48 xterm-color_48x48
+yahoo goa-account-yahoo
+youtube minitube
+zim
+uget-icon
