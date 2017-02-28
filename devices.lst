@@ -1,7 +1,7 @@
 audio-card yast_soundcard
 audio-input-microphone gnome-stock-mic stock_mic
-battery gnome-dev-battery battery-good-charging apps:gnome-power-manager apps:gnome-power-statistics apps:xfce4-battery-plugin apps:mate-power-manager status:xfpm-ac-adapter
-camera-photo camera camera_unmount emblems:emblem-camera categories:applications-photography
+battery gnome-dev-battery xfce4-power-manager-settings gnome-power-manager gnome-power-statistics xfce4-battery-plugin mate-power-manager xfpm-ac-adapter
+camera-photo camera camera_unmount emblem-camera applications-photography
 camera-web
 computer gnome-computer gnome-dev-computer gnome-fs-client system
 drive-harddisk block-device gnome-dev-harddisk gtk-harddisk harddrive hdd_unmount yast_HD yast_idetude drive-harddisk-system
@@ -15,12 +15,12 @@ drive-removable-media-ieee1394 gnome-dev-removable-1394 gnome-dev-unknown-1394
 drive-removable-media-scsi
 drive-removable-media-usb drive-removable-media-usb-pendrive gnome-dev-removable-usb usbpendrive_unmount
 gnome-dev-memory media-memory
-input-keyboard gnome-dev-keyboard kxkb xfce4-keyboard apps:preferences-desktop-keyboard keyboard
-input-mouse gnome-dev-mouse-ball gnome-dev-mouse-optical mouse xfce4-mouse yast_mouse apps:preferences-desktop-peripherals apps:kmousetool
+input-keyboard gnome-dev-keyboard kxkb xfce4-keyboard preferences-desktop-keyboard keyboard
+input-mouse gnome-dev-mouse-ball gnome-dev-mouse-optical mouse xfce4-mouse yast_mouse preferences-desktop-peripherals kmousetool
 input-tablet
 keyboard
 media-cdr cdwriter_unmount gnome-dev-disc-cdr media-optical-cdr media-optical-cd-r gnome-dev-disc-dvdr gnome-dev-disc-dvdr-plus
-media-cdrom-audio gnome-dev-cdrom-audio gnome-dev-disc-audio media-optical-audio stock_music-library actions:media-optical-audio-new
+media-cdrom-audio gnome-dev-cdrom-audio gnome-dev-disc-audio media-optical-audio stock_music-library media-optical-audio-new
 media-cdrw gnome-dev-disc-cdrw media-optical-cd-rw
 media-dvd dvd_unmount gnome-dev-disc-dvdram gnome-dev-disc-dvdrom gnome-dev-disc-dvdrw gnome-dev-dvd-alt media-dvdrw gnome-dev-disc-dvdrw media-optical-dvd-rw media-optical-dvd-r media-optical-dvd-rw media-optical-dvd-ram media-optical-dvd-rom media-optical-dvd-r-plus media-optical-dvd
 media-optical cdrom_unmount gnome-cd gnome-dev-disc-cdrom gtk-cdrom media-cdrom media-optical-cd media-cdr media-cdrw
@@ -33,13 +33,11 @@ multimedia-player-ipod-grey multimedia-player-ipod gnome-dev-ipod gtkpod ipod_mo
 multimedia-player-ipod-orange
 multimedia-player-ipod-pink
 multimedia-player-ipod-touch multimedia-player-apple-ipod-touch
-network-vpn
 network-wired gnome-dev-ethernet
 network-wired-disconnected
 network-wireless gnome-dev-wavelan
-pda
-printer gnome-dev-printer gnome-dev-printer-network gnome-dev-printer-new kjobviewer printer1 printer-remote printmgr stock_printers xfce-printer yast_printer stock/io:stock_network-printer cupsprinter apps:cups i-network-printer
-scanner apps:flegita
+printer gnome-dev-printer gnome-dev-printer-network gnome-dev-printer-new kjobviewer printer1 printer-remote printmgr stock_printers xfce-printer yast_printer stock_network-printer cupsprinter cups i-network-printer
+scanner flegita
 video-display display chardevice xfce4-display monitor
 
 

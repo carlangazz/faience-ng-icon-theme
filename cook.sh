@@ -358,10 +358,10 @@ case $1 in
 							trgt=
 							dirnm="${type}"
 						fi
+						ext=png
 						for size in ${OUTSIZES}; do
 							[ ! -d "${OUTDIR}/${size}x${size}/${type}" ] && continue
-							ext=png
-							#[ "$s" = "scalable" ] && ext=svg
+							#[ ! -d "${OUTDIR}/${size}x${size}/${dirnm}" ] && mkdir -p "${OUTDIR}/${size}x${size}/${dirnm}"
 							cd "${OUTDIR}/${size}x${size}/${type}"
 							if [ -e "${line%% *}.${ext}" ]; then
 								[ ! -e "${OUTDIR}/${size}x${size}/${dirnm}/${lnk#*:}.${ext}" ] && ln -s "${trgt}${line%% *}.${ext}" "${OUTDIR}/${size}x${size}/${dirnm}/${lnk#*:}.${ext}"
@@ -413,7 +413,7 @@ case $1 in
 			done
 		done
 		# Делаем симлинки
-		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light; do
+		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
 			inherits=$(egrep "^Inherits=" "${CURDIR}/${theme}/index.theme" | cut -d= -f2)
 			for size in ${OUTSIZES}; do
 				mkdir -p "${CURDIR}/DESTDIR/${theme}/${size}x${size}/"
@@ -486,6 +486,15 @@ case $1 in
 			ln -s "$d"
 			gtk-update-icon-cache -fi $d/
 		done
+	;;
+	release)
+		VERSION=$(git show -s --format=%cd --date=format:%Y%m%d HEAD)
+		#git tag -f $VERSION
+		#git push origin --tags
+		ln -fs DESTDIR ${CURDIR}/faience-ng-icon-theme
+		cd faience-ng-icon-theme
+		tar -acf ../faience-ng-icon-theme-${VERSION}.tar.gz *
+		rm ${CURDIR}/faience-ng-icon-theme
 	;;
 	*)
 		echo "ERROR: unknown command"

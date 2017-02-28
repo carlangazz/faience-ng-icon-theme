@@ -1,4 +1,4 @@
-add-files-to-archive apps:tap-create
+add-files-to-archive tap-create
 add-folder-to-archive
 application-exit exit gtk-quit xfce-system-exit
 appointment-new appointment stock_new-appointment
@@ -10,7 +10,7 @@ dialog-ok gtk-ok ok games-endturn
 document-import document-import-ocal
 document-new file_new gtk-new stock_new-text filenew
 document-open fileopen gtk-open
-document-open-recent status:system-file-progress-panel status:nautilus-progress-info-panel status:system-file-manager-panel
+document-open-recent system-file-progress-panel nautilus-progress-info-panel system-file-manager-panel
 document-page-setup stock_print-setup
 document-print fileprint gtk-print stock_print
 document-print-preview gtk-print-preview preview-file stock_print-preview filequickprint
@@ -29,7 +29,7 @@ edit-find-replace gtk-find-and-replace stock_search-and-replace
 edit-redo edit-undo-rtl gtk-redo-ltr redo stock_redo
 edit-select-all gtk-select-all stock_select-all
 edit-undo edit-redo-rtl gtk-undo-ltr undo stock_undo
-extract-archive cab_extract apps:tap-extract-to apps:tap-extract
+extract-archive cab_extract tap-extract-to tap-extract
 format-indent-less format-indent-more-rtl gnome-stock-text-unindent gtk-indent-rtl gtk-unindent-ltr stock_text_unindent
 format-indent-more format-indent-less-rtl gnome-stock-text-indent gtk-indent-ltr gtk-unindent-rtl stock_text_indent
 format-justify-center centrejust gtk-justify-center stock_text_center
@@ -56,11 +56,11 @@ go-next go-previous-rtl forward gtk-go-back-rtl gtk-go-forward-ltr next stock_ri
 go-previous go-next-rtl back gtk-go-back-ltr gtk-go-forward-rtl previous stock_left meld-change-apply-left media-playlist-consecutive-rtl
 go-top top gtk-goto-top stock_top
 go-up gtk-go-up stock_up up
-help-about gtk-info apps:gtk-info apps:gnome-about-logo status:dialog-information gimp-info
+help-about gtk-info gtk-info gnome-about-logo dialog-information gimp-info
 gtk-no dialog-no stock_no
 gtk-yes dialog-yes stock_yes
 help-about gtk-about stock_about
-help-contents gtk-help help help-faq apps:help-browser stock_help
+help-contents gtk-help help help-faq help-browser stock_help
 insert-text draw-text xml-text-new gimp-tool-text
 list-add add edit-add gtk-add meld-change-copy xml-element-new
 list-remove remove gtk-remove edit-delete editdelete gtk-delete stock_delete meld-change-delete xml-node-delete xml-attribute-delete
@@ -70,14 +70,14 @@ mail-forward stock_mail-forward gnome-stock-mail-fwd mail_forward
 mail-mark-important
 mail-mark-junk mail_spam stock_spam
 mail-mark-notjunk mail-mark-not-junk
-mail-mark-read mail-read apps:xfce-nomail
-mail-message-new gnome-stock-mail-new mail_new stock_mail-compose mail-mark-read mimetypes:message status:applications-email-panel apps:xfce-newmail mail-mark-unread mail-unread
+mail-mark-read mail-read xfce-nomail
+mail-message-new gnome-stock-mail-new mail_new stock_mail-compose mail-mark-read mimetypes:message applications-email-panel xfce-newmail mail-mark-unread mail-unread
 mail-outbox stock_outbox
 mail-reply-sender gnome-stock-mail-rpl mail_reply stock_mail-reply mail-replied
 mail-reply-all mail_replyall stock_mail-reply-to-all
-mail-send gnome-stock-mail-snd mail_send stock_mail-send mail-sent mail-folder-sent stock_sent-mail apps:internet-mail
+mail-send gnome-stock-mail-snd mail_send stock_mail-send mail-sent mail-folder-sent stock_sent-mail internet-mail
 mail-send-receive stock_mail-send-receive
-media-eject player-eject apps:ejecter
+media-eject player-eject ejecter
 media-import-audio-cd
 media-optical-audio-new audio-cd-new
 media-optical-burn iso-image-burn media-write-cd
@@ -100,16 +100,16 @@ object-rotate-left gimp-rotate-270
 object-rotate-right rotate gimp-rotate-90 gimp-rotate-180
 action-unavailable process-stop gtk-cancel gtk-stop stock_stop stop
 system-shutdown-restart-panel system-shutdown-panel-restart
-system-restart apps:gnome-session-reboot apps:un-reboot apps:xfsm-reboot apps:system-reboot
-system-log-out gnome-log-out gnome-logout gnome-session-logout xfsm-logout lxde-logout apps:gnome-logout
+system-restart gnome-session-reboot un-reboot xfsm-reboot system-reboot
+system-log-out gnome-log-out gnome-logout gnome-session-logout xfsm-logout lxde-logout gnome-logout
 system-lock-screen gnome-lockscreen xfce-system-lock
-system-shutdown system-shutdown-panel xfce-system-exit apps:gnome-shutdown
-system-hibernate apps:gnome-session-hibernate apps:system-suspend-hibernate apps:xfsm-hibernate
-system-suspend apps:gnome-session-suspend apps:gnome-session-sleep apps:sleep apps:xfsm-suspend
-system-switch-user apps:gnome-session-switch apps:xfsm-switch
+system-shutdown system-shutdown-panel xfce-system-exit gnome-shutdown
+system-hibernate gnome-session-hibernate system-suspend-hibernate xfsm-hibernate
+system-suspend gnome-session-suspend gnome-session-sleep sleep xfsm-suspend
+system-switch-user gnome-session-switch xfsm-switch
 system-run gnome-run gtk-execute bonobo-component-browser
 system-build geany-build
-system-search gnome-searchtool kfind search apps:catfish apps:preferences-system-search
+system-search gnome-searchtool kfind search catfish preferences-system-search
 tab-new tab_new stock_new-tab
 tools-check-spelling gtk-spell-check stock_spellcheck
 view-fullscreen gtk-fullscreen stock_fullscreen window_fullscreen
@@ -136,7 +136,7 @@ object-visible eye gimp-visible
 view-page-continuous view-continuous
 exchange-positions exchange-positions-zorder exchange-positions-clockwise
 font-select dialog-text-and-font
-object-hidden status:user-not-tracked
+object-hidden user-not-tracked
 draw-eraser gimp-tool-eraser
 dialog-align-and-distribute gimp-tool-align
 tool-tweak gimp-tool-warp
@@ -164,11 +164,12 @@ draw-rectangle gimp-shape-square
 open-menu gimp-menu-right gimp-menu-left
 view-continuous view-page-continuous
 zoom-fit-best zoom-fit-page
-color-select color-picker apps:preferences-color gtk-select-color gimp-tool-color-picker
+color-select color-picker preferences-color gtk-select-color gimp-tool-color-picker
 edit-find filefind find gtk-find stock_search system-search
 view-dual view-page-facing
 gimp-tool-by-color-select color-management
-stock_connect actions:online
-stock_disconnect  actions:offline
+stock_connect online
+stock_disconnect  offline
 stock_text-monospaced
 stock_people stock_new-meeting
+find-location xc_crosshair

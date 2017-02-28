@@ -19,7 +19,7 @@ application-x-ms-dos-executable gnome-mime-application-x-ms-dos-executable gnome
 application-x-msdownload gnome-exe-thumbnailer-template gnome-exe-thumbnailer-generic
 application-x-php gnome-mime-application-x-php
 application-x-rar gnome-mime-application-x-rar
-application-x-ruby gnome-mime-application-x-ruby categories:applications-ruby
+application-x-ruby gnome-mime-application-x-ruby applications-ruby
 application-x-sln application-x-csproj
 application-x-tar gnome-mime-application-x-tar application-x-archive folder_tar tar
 application-x-theme application-x-desktop application-x-gnome-theme-package gnome-mime-application-x-desktop gnome-mime-application-x-gnome-app-info gnome-mime-application-x-gnome-theme-package gnome-mime-application-x-theme gnome-mime-application-x-desktop gnome-mime-text-x-gtkrc
@@ -34,8 +34,8 @@ authors gnome-mime-text-x-authors gnome-mime-text-x-credits text-x-authors text-
 deb application-x-deb gnome-mime-application-x-deb
 empty gnome-fs-regular gtk-file text-x-preview
 encrypted application-pgp-encrypted
-extension openofficeorg3-extension categories:applications-puzzles apps:parole-extension
-font-x-generic font_bitmap font font_truetype font_type1 gnome-mime-application-x-font-afm gnome-mime-application-x-font-bdf gnome-mime-application-x-font-linux-psf gnome-mime-application-x-font-pcf gnome-mime-application-x-font-sunos-news gnome-mime-application-x-font-ttf gnome-mime-x-font-afm apps:preferences-desktop-font apps:fonts apps:gnome-settings-font categories:applications-fonts
+extension openofficeorg3-extension applications-puzzles parole-extension
+font-x-generic font_bitmap font font_truetype font_type1 gnome-mime-application-x-font-afm gnome-mime-application-x-font-bdf gnome-mime-application-x-font-linux-psf gnome-mime-application-x-font-pcf gnome-mime-application-x-font-sunos-news gnome-mime-application-x-font-ttf gnome-mime-x-font-afm preferences-desktop-font fonts gnome-settings-font applications-fonts
 image-bmp gnome-mime-image-bmp gnome-mime-image-x-portable-bitmap image-x-portable-bitmap image-x-win-bitmap
 image-gif gnome-mime-image-gif
 image-jpeg gnome-mime-image-jpeg image-jpeg2000 jpeg jpg
@@ -45,14 +45,14 @@ image-x-eps application-illustrator
 image-x-generic gnome-mime-application-x-killustrator gnome-mime-image gnome-mime-image-x-cmu-raster gnome-mime-image-x-xpixmap image image-x-tga media-image
 image-x-ico image-x-icon image-vnd.microsoft.icon gnome-mime-image-vnd.microsoft.icon
 image-x-psd gnome-mime-image-x-psd image-x-psdimage-x-psd gnome-mime-image-vnd.adobe.photoshop
-message message-rfc822 application-mbox emblems:emblem-mail
+message message-rfc822 application-mbox emblem-mail
 multipart-encrypted application-octet-stream application-x-ole-storage
-package-x-generic gnome-package package application-x-pak emblems:emblem-package
+package-x-generic gnome-package package application-x-pak emblem-package
 rpm application-x-rpm gnome-mime-application-x-rpm
 text-css gnome-mime-text-css text-x-css
 text-html application-x-extension-html gnome-mime-text-html html text-htmlh text-mht www application-vnd.oasis.opendocument.text-web gnome-mime-application-vnd.oasis.opendocument.text-web gnome-mime-text-vnd.wap.wml text-xhtml+xml
 text-plain application-text gnome-mime-text gnome-mime-text-plain misc package_editors text-x-generic txt txt2
-text-richtext application-rtf application-x-m4 document gnome-mime-application-postscript gnome-mime-application-rtf gnome-mime-application-x-gzpostscript text-enriched categories:applications-publishing
+text-richtext application-rtf application-x-m4 document gnome-mime-application-postscript gnome-mime-application-rtf gnome-mime-application-x-gzpostscript text-enriched applications-publishing
 text-x-bak application-x-trash
 text-x-c gnome-mime-text-x-csrc gnome-mime-text-x-c text-x-csrc
 text-x-c++ gnome-mime-text-x-c++src gnome-mime-text-x-c++ text-x-c++src
@@ -65,7 +65,7 @@ text-x-install gnome-mime-x-install
 text-x-java application-x-java application-x-class-file application-x-java gnome-mime-application-x-class-file gnome-mime-application-x-java gnome-mime-text-x-java-source gnome-mime-text-x-java text-x-java-source
 text-x-javascript application-javascript application-x-javascript gnome-mime-application-javascript gnome-mime-application-x-javascript gnome-mime-text-x-javascript
 text-x-makefile gnome-mime-text-x-makefile playlist-automatic source-smart-playlist
-text-x-python application-x-python-bytecode gnome-mime-application-x-python-bytecode gnome-mime-text-x-python categories:applications-python
+text-x-python application-x-python-bytecode gnome-mime-application-x-python-bytecode gnome-mime-text-x-python applications-python
 text-x-readme gnome-mime-text-x-readme
 text-x-script application-x-shellscript gnome-mime-application-x-shellscript gnome-mime-text-x-csh gnome-mime-text-x-install gnome-mime-text-x-sh gnome-mime-text-x-zsh shellscript
 text-x-source gnome-mime-application-xml gnome-mime-text-x-source gnome-mime-text-x-csharp gnome-mime-text-x-makefile stock_script
@@ -75,10 +75,10 @@ text-xhtml+xml gnome-mime-application-xhtml+xml
 text-xml application-xml gnome-mime-application-xml
 unknown none
 vcalendar gnome-mime-text-x-vcalendar stock_calendar
-video-x-generic application-vnd.rn-realmedia application-x-matroska gnome-mime-application-vnd.rn-realmedia-secure gnome-mime-application-vnd.rn-realmedia gnome-mime-application-vnd.rn-realmedia-vbr gnome-mime-video gnome-mime-video-x-ms-asf gnome-mime-video-x-ms-wmv media-video video emblems:emblem-videos
+video-x-generic application-vnd.rn-realmedia application-x-matroska gnome-mime-application-vnd.rn-realmedia-secure gnome-mime-application-vnd.rn-realmedia gnome-mime-application-vnd.rn-realmedia-vbr gnome-mime-video gnome-mime-video-x-ms-asf gnome-mime-video-x-ms-wmv media-video video emblem-videos
 x-office-address-book stock_addressbook
-x-office-document application-vnd.oasis.opendocument.text application-vnd.sun.xml.writer application-vnd.wordperfect gnome-mime-application-vnd.oasis.opendocument.text gnome-mime-application-vnd.stardivision.writer gnome-mime-application-vnd.sun.xml.writer gnome-mime-application-wordperfect gnome-mime-application-x-abiword gnome-mime-application-x-applix-word gnome-mime-application-x-dvi gnome-mime-application-x-kword office-document package_wordprocessing wordprocessing emblems:emblem-documents
+x-office-document application-vnd.oasis.opendocument.text application-vnd.sun.xml.writer application-vnd.wordperfect gnome-mime-application-vnd.oasis.opendocument.text gnome-mime-application-vnd.stardivision.writer gnome-mime-application-vnd.sun.xml.writer gnome-mime-application-wordperfect gnome-mime-application-x-abiword gnome-mime-application-x-applix-word gnome-mime-application-x-dvi gnome-mime-application-x-kword office-document package_wordprocessing wordprocessing emblem-documents
 x-office-drawing application-illustrator application-vnd.oasis.opendocument.graphics application-vnd.sun.xml.draw gnome-mime-application-vnd.oasis.opendocument.graphics gnome-mime-application-vnd.oasis.opendocument.image gnome-mime-application-vnd.sun.xml.draw image-svg+xml image-x-svg+xml office-illustration openofficeorg3-drawing svg vnd.oasis.opendocument.drawing
-x-office-presentation gnome-mime-application-magicpoint gnome-mime-application-vnd.oasis.opendocument.presentation gnome-mime-application-vnd.stardivision.impress gnome-mime-application-vnd.sun.xml.impress gnome-mime-application-x-kpresenter kpresenter_kpr emblems:emblem-presentation
+x-office-presentation gnome-mime-application-magicpoint gnome-mime-application-vnd.oasis.opendocument.presentation gnome-mime-application-vnd.stardivision.impress gnome-mime-application-vnd.sun.xml.impress gnome-mime-application-x-kpresenter kpresenter_kpr emblem-presentation
 x-office-spreadsheet application-vnd.oasis.opendocument.spreadsheet application-vnd.sun.xml.calc application-x-gnumeric gnome-mime-application-vnd.lotus-1-2-3 gnome-mime-application-vnd.oasis.opendocument.spreadsheet gnome-mime-application-vnd.stardivision.calc gnome-mime-application-vnd.sun.xml.calc gnome-mime-application-x-applix-spreadsheet gnome-mime-application-x-gnumeric gnome-mime-application-x-kspread office-spreadsheet openofficeorg3-oasis-spreadsheet spreadsheet text-spreadsheet
 

@@ -23,7 +23,7 @@ bluetooth-disabled blueman-tray-disabled blueman-disabled
 bluetooth-paired
 caffeine-cup-empty
 caffeine-cup-full xfce4-time-out-plugin
-changes-allow actions:object-unlocked
+changes-allow object-unlocked
 covergloobus-panel
 dcpp-panel dcpp-32
 deadbeef-tray-icon deadbeef_tray_icon
@@ -55,7 +55,7 @@ battery-good gpm-primary-080 battery_third_fouth gpm-battery-080 gpm-ups-080 not
 battery-good-charging gpm-primary-080-charging gpm-battery-080-charging gpm-ups-080-charging notification-battery-080-plugged notification-gpm-battery-080-charging notification-gpm-ups-080-charging xfpm-primary-080-charging xfpm-battery-080-charging
 battery-full gpm-primary-100 battery_full gpm-battery-100 gpm-ups-100 notification-battery-100 notification-gpm-battery-100 notification-gpm-ups-100 xfpm-primary-100 xfpm-battery-100
 battery-full-charging gpm-primary-100-charging gpm-primary-charged gpm-battery-100-charging gpm-ups-100-charging notification-battery-100-plugged notification-gpm-battery-100-charging notification-gpm-ups-100-charging xfpm-primary-100-charging xfpm-battery-100-charging battery-full-charged
-battery-full-charged gpm-primary-charged battery_charged battery_plugged gpm-ac-adapter gpm-battery-charged notification-gpm-battery-charged xfpm-primary-charged xfpm-ac-adapter xfpm-battery-charged
+battery-full-charged gpm-primary-charged battery_charged battery_plugged gpm-ac-adapter gpm-battery-charged notification-gpm-battery-charged xfpm-primary-charged xfpm-ac-adapter xfpm-battery-charged ac-adapter
 battery-missing gpm-primary-missing
 network-cellular-signal-excellent gsm-3g-full
 network-cellular-secure-signal-excellent gsm-3g-full-secure
@@ -72,7 +72,7 @@ gtg-panel clipit-trayicon
 im-message-new tray-message tray-new-im
 image-loading gnome-fs-loading-icon
 image-missing gtk-missing-image
-changes-prevent locked keys gnome-dev-wavelan-encrypted keys network-wireless-encrypted nm-vpn-standalone-lock status_lock stock_lock xfce-system-lock  actions:object-locked
+changes-prevent locked keys gnome-dev-wavelan-encrypted keys network-wireless-encrypted nm-vpn-standalone-lock status_lock stock_lock xfce-system-lock  object-locked
 media-player-banshee-panel banshee-panel
 network-error gnome-netstatus-error gnome-netstatus-disconn nm-no-connection
 network-idle connect_established gnome-netstatus-idle nm-device-wireless
@@ -102,7 +102,7 @@ notification-network-wireless-high notification-gsm-high
 notification-network-wireless-low notification-gsm-low
 notification-network-wireless-medium notification-gsm-medium
 notification-network-wireless-none notification-gsm-none
-pazzle zim-panel actions:blueman-plugin
+pazzle zim-panel blueman-plugin
 pino-tray-icon
 pino-tray-icon-fresh
 printer-printing
@@ -164,8 +164,8 @@ weather-storm stock_weather-storm
 xchat-panel
 zim-panel
 uget-tray-default uget-tray-downloading uget-tray-error
-software-update-available actions:system-upgrade pamac-tray-update software-update-urgent
+software-update-available system-upgrade pamac-tray-update software-update-urgent
 software-update-unvailable pamac-tray-no-update
 krb-valid-ticket dialog-password
-rotation-allowed actions:transform-rotate
+rotation-allowed transform-rotate
 avatar-default stock_person stock_person-panel
