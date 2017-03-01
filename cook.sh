@@ -63,7 +63,11 @@ case $1 in
 			for size in 16 24; do
 				for type in actions places status; do
 					[ ! -d "${CURDIR}/scalable-up-to-${size}/${type}" ] && continue
-					files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | sort)
+					if [ "$type" = "places" ]; then
+						files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | egrep "^start" | sort)
+					else
+						files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | sort)
+					fi
 					for file in $files; do
 						outfile="${OUTDIR}/${size}x${size}/${type}/$(basename ${file/-symbolic/})"
 						if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
@@ -496,6 +500,10 @@ case $1 in
 		tar -acf ../faience-ng-icon-theme-${VERSION}.tar.gz *
 		rm ${CURDIR}/faience-ng-icon-theme
 	;;
+	png)
+		inkscape -z -d 96 -y 0.0 --file="${2}" --export-png="$CURDIR/$(basename -s .svg ${2}).png"
+	;;
+
 	*)
 		echo "ERROR: unknown command"
 	;;

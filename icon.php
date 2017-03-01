@@ -395,7 +395,7 @@ shell_exec("inkscape --file='$file' --select=Bevel --verb=SelectionUnGroup --ver
  --verb=FileSave --verb=FileQuit");
 }
 
-if (isset($_SERVER['argv'][2])) {
+if (isset($_SERVER['argv'][3])) {
   copy($file, $_SERVER['argv'][3] . '/' . basename($file));
   unlink($file);
 }

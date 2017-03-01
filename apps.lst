@@ -272,7 +272,7 @@ system-switch-java
 telepathy
 terminator
 Thunar thunar
-time-admin config-date preferences-system-time clocks timer-applet xfce4-timer
+time-admin config-date preferences-system-time clocks timer-applet xfce4-timer orage_globaltime
 tomboy knotes xpad
 totem kaffeine parole
 thunderbird mozilla-thunderbird thunderbird-icon

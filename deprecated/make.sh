@@ -389,9 +389,9 @@ esac
 # grep -rl "style" ./scalable/ | sort
 
 # Get list of Adwaita symbolic icons
-#find /usr/share/icons/Adwaita/scalable -name "*-symbolic*" | sed 's|/usr/share/icons/Adwaita/||' | sort > adwaita.list
-#find scalable -name "*-symbolic*" | sort > scalable.list
-#comm -13 ./scalable.list ./adwaita.list
+#find /usr/share/icons/Adwaita/scalable -name "*-symbolic*" | sed 's|/usr/share/icons/Adwaita/scalable||' | sort > adwaita.list
+#find scalable-up-to-16/ -name "*-symbolic*" | sed 's|scalable-up-to-16||' | sort > scalable.list
+#comm -13 ./scalable.list ./adwaita.list > missing_scalable.list
 
 # grep -rl "style" ./scalable*/ |  xargs  sed -Ei 's/ style="[^"]*"//'
 # grep -rl "<svg " ./scalable/ |  xargs  sed -Ei 's|<svg [^\>]+>|<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg">|'
@@ -401,3 +401,8 @@ esac
 # grep -rl " id=" ./scalable*/ |  xargs  sed -Ei 's/ id="[^"]*"//'
 # grep -rl "<?xml" ./scalable*/ | xargs sed -Ei 's|<\?xml [^\>]+>||'
 # find . -name "*.lst" -exec md5sum {} \;
+
+
+#find /usr/share/icons/Adwaita/scalable -name "*-symbolic*" | sed 's|.*/||' | sort > adwaita.list
+#find scalable-up-to-16/ -name "*-symbolic*" | sed 's|.*/||' | sort > scalable.list
+#comm -13 ./scalable.list ./adwaita.list > missing_scalable.list
