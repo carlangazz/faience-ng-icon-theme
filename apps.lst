@@ -2,7 +2,7 @@ abiword abiword_48
 accessories-calculator calc galculator gnome-calculator speedcrunch applications-mathematics kcalc
 accessories-character-map gnome-character-map gucharmap kcharselect
 accessories-dictionary gnome-dictionary stardict goldendict audiobook xfce4-dict
-accessories-text-editor gnome-word kedit mousepad text-editor xfce-edit
+accessories-text-editor gnome-word kedit mousepad text-editor xfce-edit geany
 acroread AdobeReader AdobeReader8 AdobeReader9 AdobeReader10
 activity-log-manager
 adobe-air AdobeAIR
@@ -22,7 +22,7 @@ baobab
 blender
 bluefish bluefish-icon
 bluegriffon
-brasero nautilus-cd-burner k3b xfburn
+brasero nautilus-cd-burner k3b xfburn asunder
 bug-buddy abrt gnome-abrt applications-debugging
 caffeine xfce4-time-out-plugin
 calibre-gui
@@ -317,5 +317,7 @@ xournal
 xterm xterm_32x32 xterm-color_32x32 xterm_48x48 xterm-color_48x48
 yahoo goa-account-yahoo
 youtube minitube
+minitube smtube
 zim
 uget-icon
+smartgit meld-version-control

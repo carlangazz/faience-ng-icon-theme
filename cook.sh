@@ -43,10 +43,10 @@ get_context() {
 
 OUTSIZES="8 16 22 24 32 48 256" #256
 
-#@TODO: Удаление удаленных вариантов
 
 case $1 in
 	step1)
+		TYPES="actions places status apps devices categories" #!  apps devices
 		# Шаг первый: Преобразовываем symbolic в градиентные actions\status
 		# Преобразовываются только новые или измененные
 		# Запускаем в фоне
@@ -58,16 +58,16 @@ case $1 in
 		else
 			echo "Xvfb is missing in your system"
 		fi
-		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark; do
+		for theme in Faience-ng-Dark Faience-ng Faience-ng-Light; do
 			OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
 			for size in 16 24; do
-				for type in actions places status; do
+				for type in $TYPES; do
 					[ ! -d "${CURDIR}/scalable-up-to-${size}/${type}" ] && continue
-					if [ "$type" = "places" ]; then
-						files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | egrep "^start" | sort)
-					else
+					#if [ "$type" = "places" ]; then
+						#files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | egrep "^start" | sort)
+					#else
 						files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | sort)
-					fi
+					#fi
 					for file in $files; do
 						outfile="${OUTDIR}/${size}x${size}/${type}/$(basename ${file/-symbolic/})"
 						if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
@@ -83,7 +83,7 @@ case $1 in
 		theme=Faience-ng
 		size=96
 		OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
-		for type in actions places status; do
+		for type in $TYPES; do
 			[ ! -d "${CURDIR}/scalable-up-to-${size}/${type}" ] && continue
 			files=$(find ./scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | sort)
 			for file in $files; do
@@ -97,9 +97,9 @@ case $1 in
 		done
 
 		# Удаляем удаленные
-		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark; do
+		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark Faience-ng-variant2; do
 			#OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
-			for size in ${OUTSIZES}; do
+			for size in 16 24 96; do
 				if [ -d "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/" ]; then
 					cd "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/"
 					for file in $(find . -name "*.svg" 2>/dev/null | sort); do
@@ -121,7 +121,7 @@ case $1 in
 			INDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
 			OUTDIR="${CURDIR}/PREBUILD/png/symbolic/${theme}"
 			mkdir -p "${OUTDIR}"
-			for type in actions places status; do
+			for type in actions places status apps devices categories; do
 				for size in ${OUTSIZES}; do
 					case "$size" in
 						16)
@@ -219,7 +219,7 @@ case $1 in
 	;;
 	step3)
 		#Рендерим иконки, нарисованные вручную
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green; do # Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green
+		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-variant2; do # Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green
 			INDIR="${CURDIR}/${theme}"
 			OUTDIR="${CURDIR}/PREBUILD/png/drawed/$theme"
 			mkdir -p "${OUTDIR}"
@@ -341,12 +341,30 @@ case $1 in
 	step4)
 		rm -rf "${CURDIR}/DESTDIR"
 		# Слияние подготовленных иконок в DESTDIR
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
+		for theme in Faience-ng-variant2 Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
 			OUTDIR="${CURDIR}/DESTDIR/${theme}"
 			mkdir -p "${OUTDIR}"
 			if [ -d "${CURDIR}/PREBUILD/png/symbolic/${theme}" ]; then
 				cp -aT "${CURDIR}/PREBUILD/png/symbolic/${theme}" "${OUTDIR}"
 			fi
+
+			rm -rf "${OUTDIR}/16x16/apps" "${OUTDIR}/16x16/devices" "${OUTDIR}/16x16/categories"
+			if [ -d "${CURDIR}/DESTDIR/${theme}/16x16/places" ]; then
+				for f in $(find ${CURDIR}/DESTDIR/${theme}/16x16/places -name "*.png" 2>/dev/null | egrep -v "^start"); do
+					rm -f "$f"
+				done
+			fi
+
+			if [ "$theme" == "Faience-ng-variant2" ]; then
+				mkdir -p "${OUTDIR}/16x16/places";
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16"
+				for f in $(find ${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/places -name "*.png" 2>/dev/null | egrep -v "^start"); do
+					cp -a "$f" "${OUTDIR}/16x16/places/"
+				done
+			fi
+
 			if [ -d "${CURDIR}/PREBUILD/png/drawed/${theme}" ]; then
 				cp -aT "${CURDIR}/PREBUILD/png/drawed/${theme}" "${OUTDIR}"
 			fi
@@ -417,7 +435,7 @@ case $1 in
 			done
 		done
 		# Делаем симлинки
-		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
+		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-variant2; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
 			inherits=$(egrep "^Inherits=" "${CURDIR}/${theme}/index.theme" | cut -d= -f2)
 			for size in ${OUTSIZES}; do
 				mkdir -p "${CURDIR}/DESTDIR/${theme}/${size}x${size}/"
@@ -431,8 +449,8 @@ case $1 in
 				done
 			done
 		done
-		# Механизм создания симлинков получился запутанным :-( . По другому пока не получается избавиться от багов.
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
+
+		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-variant2; do
 
 			OUTDIR="${CURDIR}/DESTDIR/${theme}"
 
@@ -503,7 +521,13 @@ case $1 in
 	png)
 		inkscape -z -d 96 -y 0.0 --file="${2}" --export-png="$CURDIR/$(basename -s .svg ${2}).png"
 	;;
-
+	all)
+		$0 step1
+		$0 step2
+		$0 step3
+		$0 step4
+		$0 test
+	;;
 	*)
 		echo "ERROR: unknown command"
 	;;

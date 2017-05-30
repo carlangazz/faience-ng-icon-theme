@@ -2,16 +2,16 @@ add-files-to-archive tap-create
 add-folder-to-archive
 application-exit exit gtk-quit xfce-system-exit
 appointment-new appointment stock_new-appointment
-bookmark-new bookmark_add bookmark-add bookmark_list_add stock_add-bookmark stock_help-add-bookmark bookmarks_list_add
+bookmark-new bookmark_add bookmark-add bookmark_list_add stock_add-bookmark stock_help-add-bookmark bookmarks_list_add stock_thunar-shortcuts
 call-stop call-end
 contact-new stock_new-bcard
 dialog-apply gtk-apply stock_calc-accept stock_mail-filters-apply stock_mark
 dialog-ok gtk-ok ok games-endturn
 document-import document-import-ocal
-document-new file_new gtk-new stock_new-text filenew
-document-open fileopen gtk-open
+document-new file_new gtk-new stock_new-text filenew gtk-file
+document-open fileopen gtk-open gimp-image-open
 document-open-recent system-file-progress-panel nautilus-progress-info-panel system-file-manager-panel
-document-page-setup stock_print-setup
+document-page-setup stock_print-setup gtk-page-setup
 document-print fileprint gtk-print stock_print
 document-print-preview gtk-print-preview preview-file stock_print-preview filequickprint
 document-properties bonobo-component-browser gtk-properties stock_file-properties stock_folder-properties stock_properties stock_file-properites
@@ -50,7 +50,7 @@ go-bottom bottom gtk-goto-bottom stock_bottom
 go-down gtk-go-down stock_down down
 go-first go-last-rtl gtk-goto-first-ltr gtk-goto-last-rtl start stock_first
 go-home gohome gtk-home kfm-home redhat-home stock_home kfm_home
-go-jump gtk-jump-to-ltr gtk-jump-to-rtl
+go-jump gtk-jump-to-ltr gtk-jump-to-rtl location
 go-last go-first-rtl finish gtk-goto-first-rtl gtk-goto-last-ltr stock_last
 go-next go-previous-rtl forward gtk-go-back-rtl gtk-go-forward-ltr next stock_right meld-change-apply-right media-playlist-consecutive
 go-previous go-next-rtl back gtk-go-back-ltr gtk-go-forward-rtl previous stock_left meld-change-apply-left media-playlist-consecutive-rtl
@@ -78,11 +78,12 @@ mail-reply-all mail_replyall stock_mail-reply-to-all
 mail-send gnome-stock-mail-snd mail_send stock_mail-send mail-sent mail-folder-sent stock_sent-mail internet-mail
 mail-send-receive stock_mail-send-receive
 media-eject player-eject ejecter
-media-import-audio-cd
-media-optical-audio-new audio-cd-new
-media-optical-burn iso-image-burn media-write-cd
-media-optical-copy audio-cd-duplicate
-media-optical-data-new
+media-import-audio-cd stock_xfburn-import-session
+media-optical-audio-new audio-cd-new stock_xfburn-audio-cd
+media-optical-blank stock_xfburn-blank-cdrw
+media-optical-burn iso-image-burn media-write-cd stock_xfburn stock_xfburn-burn-cd
+media-optical-copy audio-cd-duplicate stock_xfburn-data-copy
+media-optical-data-new stock_xfburn-new-data-composition
 media-optical-video-new
 media-playback-pause gtk-media-pause player_pause stock_media-pause
 media-playback-start gtk-media-play-ltr player_play stock_media-play
@@ -107,15 +108,13 @@ system-shutdown system-shutdown-panel xfce-system-exit gnome-shutdown
 system-hibernate gnome-session-hibernate system-suspend-hibernate xfsm-hibernate
 system-suspend gnome-session-suspend gnome-session-sleep sleep xfsm-suspend
 system-switch-user gnome-session-switch xfsm-switch
-system-run gnome-run gtk-execute bonobo-component-browser
+system-run gnome-run gtk-execute bonobo-component-browser gimp-tools application-menu
 system-build geany-build
 system-search gnome-searchtool kfind search catfish preferences-system-search
 tab-new tab_new stock_new-tab
 tools-check-spelling gtk-spell-check stock_spellcheck
 view-fullscreen gtk-fullscreen stock_fullscreen window_fullscreen
-view-list-compact-symbolic view-list-compact
-view-list-details-symbolic view-list-details
-view-list-icons-symbolic view-list-icons
+view-list-icons pack-less
 view-restore gtk-leave-fullscreen stock_leave-fullscreen window_nofullscreen
 view-refresh stock-refresh reload_page reload_all_tabs reload3 reload gtk-refresh stock_refresh
 view-sort-ascending gtk-sort-ascending
@@ -125,7 +124,7 @@ window-new window_new stock_new-window
 zoom-in gtk-zoom-in stock_zoom-in viewmag+
 zoom-out gtk-zoom-out stock_zoom-out viewmag-
 zoom-original gtk-zoom-100 stock_zoom-1 viewmag1
-zoom-fit zoom-best-fit zoom-fit-best gtk-zoom-fit stock_zoom-page viewmagfit zoom sticky_zoom gimp-tool-zoom
+zoom-fit zoom-best-fit zoom-fit-best gtk-zoom-fit stock_zoom-page viewmagfit zoom sticky_zoom gimp-tool-zoom system-search  gnome-searchtool kfind search catfish preferences-system-search
 paint-solid object-fill
 draw-rectangle object-stroke
 view-left-close gtk-index
@@ -135,7 +134,7 @@ zoom-fit-page zoom-fit-best
 object-visible eye gimp-visible
 view-page-continuous view-continuous
 exchange-positions exchange-positions-zorder exchange-positions-clockwise
-font-select dialog-text-and-font
+font-select dialog-text-and-font gtk-select-font
 object-hidden user-not-tracked
 draw-eraser gimp-tool-eraser
 dialog-align-and-distribute gimp-tool-align
@@ -144,7 +143,8 @@ image-crop gimp-tool-crop
 draw-path gimp-tool-path
 tool-measure gimp-tool-measure
 color-fill gimp-tool-bucket-fill
-paint-gradient-linear gimp-tool-blend
+paint-gradient-linear gimp-gradient-linear gimp-tool-blend
+paint-gradient-radial gimp-gradient-radial
 dialog-layers gimp-layers
 stock_filters-invert gimp-invert
 edit-undo-history gimp-undo-history
@@ -164,7 +164,7 @@ draw-rectangle gimp-shape-square
 open-menu gimp-menu-right gimp-menu-left
 view-continuous view-page-continuous
 zoom-fit-best zoom-fit-page
-color-select color-picker preferences-color gtk-select-color gimp-tool-color-picker
+color-select color-picker preferences-color gtk-select-color gimp-tool-color-picker gtk-color-picker
 edit-find filefind find gtk-find stock_search system-search
 view-dual view-page-facing
 gimp-tool-by-color-select color-management
@@ -173,3 +173,22 @@ stock_disconnect  offline
 stock_text-monospaced
 stock_people stock_new-meeting
 find-location xc_crosshair
+path-mode-bezier gimp-paths
+gimp-wilber gimp-wilber-outline
+draw-cuboid gimp-tool-perspective
+paint-pattern gimp-pattern
+dialog-templates gimp-template
+gtk-orientation-landscape gimp-landscape
+gtk-orientation-portrait gimp-portrait
+unlock screensaver-unlock
+vc-add vc-add-24
+vc-checkout vc-checkout-24
+vc-commit vc-commit-24
+vc-push vc-push-24
+vc-remove vc-remove-24
+vc-resolve vc-resolve-24
+vc-update vc-update-24
+filter-normal filter-normal-24
+filter-nonvc filter-nonvc-24
+filter-modified filter-modified-24
+filter-ignored filter-ignored-24

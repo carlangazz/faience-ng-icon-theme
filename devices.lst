@@ -24,7 +24,7 @@ media-cdrom-audio gnome-dev-cdrom-audio gnome-dev-disc-audio media-optical-audio
 media-cdrw gnome-dev-disc-cdrw media-optical-cd-rw
 media-dvd dvd_unmount gnome-dev-disc-dvdram gnome-dev-disc-dvdrom gnome-dev-disc-dvdrw gnome-dev-dvd-alt media-dvdrw gnome-dev-disc-dvdrw media-optical-dvd-rw media-optical-dvd-r media-optical-dvd-rw media-optical-dvd-ram media-optical-dvd-rom media-optical-dvd-r-plus media-optical-dvd
 media-optical cdrom_unmount gnome-cd gnome-dev-disc-cdrom gtk-cdrom media-cdrom media-optical-cd media-cdr media-cdrw
-media-floppy gnome-dev-floppy gtk-floppy system-floppy
+media-floppy gnome-dev-floppy gtk-floppy system-floppy 3floppy_unmount
 multimedia-player music-player
 multimedia-player-ipod gnome-dev-ipod gtkpod ipod_mount multimedia-player-apple-ipod
 multimedia-player-ipod-blue

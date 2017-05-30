@@ -18,7 +18,7 @@ $symbolic = $_SERVER['argv'][1];
 $icon = basename($_SERVER['argv'][1], '-symbolic.svg');
 
 $xml = simplexml_load_file(CURDIR . '/96x96b.svg');
-$json = json_decode(file_get_contents('/run/media/guest/Private/clones/my-icons/Faenza/apps/apps.json'), true);
+$json = json_decode(file_get_contents('/home/guest/Private/projects/my-icons/Faenza/apps/apps.json'), true);
 
 $gradient = $xml->xpath('//*[@id="buttonGradient"]')[0];
 $gradient->stop[1]['stop-color'] = $json[$icon]['bg']['start'];
