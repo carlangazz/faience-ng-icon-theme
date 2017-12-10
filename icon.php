@@ -54,7 +54,8 @@ $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="' . $xml['height'] . '" width="' . $xml['width'] . '">
+   height="' . $xml['height'] . '" width="' . $xml['width'] . '"
+   inkscape:version="0.92.1 r">
   <defs>';
 
 if ($type === 1) {

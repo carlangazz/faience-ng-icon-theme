@@ -228,7 +228,7 @@ playonlinux
 ppa
 poedit gnome-translate
 podcast library-podcast gpodder
-preferences-color
+preferences-color gcolor2
 preferences-desktop-accessibility accessibility-directory access ax-applet gnome-settings-accessibility-technologies orca
 preferences-desktop-wallpaper background gnome-settings-background wallpaper xfce4-backdrop
 preferences-desktop-keyboard
@@ -267,11 +267,10 @@ stellarium
 stock_keyring badge-small keyring-manager password revelation seahorse seahorse-preferences activity-log-manager gksu dialog-password  preferences-system-privacy
 synapse
 synaptic gnome-app-install gnome-package system-installer system-software-install system-installer system-software-installer drakstats gdebi gdeb gnome-apt kentoo kpackage kynpatic package-manager-icon pirut porthole rpmdrake update-notifier yumex aptdaemon-download
-system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja
+system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja Thunar thunar
 system-switch-java
 telepathy
 terminator
-Thunar thunar
 time-admin config-date preferences-system-time clocks timer-applet xfce4-timer orage_globaltime
 tomboy knotes xpad
 totem kaffeine parole
@@ -321,3 +320,6 @@ minitube smtube
 zim
 uget-icon
 smartgit meld-version-control
+sqlitebrowser mysql-workbench
+system-search gnome-searchtool kfind search catfish preferences-system-search
+atril qpdfview

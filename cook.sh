@@ -51,10 +51,11 @@ case $1 in
 		# Преобразовываются только новые или измененные
 		# Запускаем в фоне
 		if command -v Xvfb &>/dev/null; then
-			Xvfb :1 -screen 0 640x480x24 -fbdir /var/tmp &
+			#Xvfb :1 -screen 0 640x480x24 -fbdir /var/tmp &
 			#xorgpid="$!"
-			trap "kill $!" EXIT
-			export DISPLAY=:1.0
+			#trap "kill $!" EXIT
+			#export DISPLAY=:1.0
+			:
 		else
 			echo "Xvfb is missing in your system"
 		fi
@@ -527,6 +528,13 @@ case $1 in
 		$0 step3
 		$0 step4
 		$0 test
+	;;
+	rename)
+		sed -e 's|Icon=.*|Icon=fceux|' -i /usr/share/applications/fceux.desktop
+		sed -e 's|Icon=.*|Icon=hardinfo|' -i /usr/share/applications/hardinfo.desktop
+		sed -e 's|Icon=.*|Icon=hp_logo|' -i /usr/share/applications/hplip.desktop
+		sed -e 's|Icon=.*|Icon=guvcview|' -i /usr/share/applications/guvcview.desktop
+		sed -e 's|Icon=.*|Icon=gcolor2|' -i /usr/share/applications/gcolor2.desktop
 	;;
 	*)
 		echo "ERROR: unknown command"
