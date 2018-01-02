@@ -168,8 +168,8 @@ color-select color-picker preferences-color gtk-select-color gimp-tool-color-pic
 edit-find filefind find gtk-find stock_search system-search
 view-dual view-page-facing
 gimp-tool-by-color-select color-management
-stock_connect online
-stock_disconnect  offline
+stock_connect online gtk-connect
+stock_disconnect  offline gtk-disconnect
 stock_text-monospaced
 stock_people stock_new-meeting
 find-location xc_crosshair
@@ -192,3 +192,4 @@ filter-normal filter-normal-24
 filter-nonvc filter-nonvc-24
 filter-modified filter-modified-24
 filter-ignored filter-ignored-24
+document-edit list-edit

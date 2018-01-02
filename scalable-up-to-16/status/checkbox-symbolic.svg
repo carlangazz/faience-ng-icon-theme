@@ -1,3 +1,13 @@
-<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg">
-	<path d="m3.5 1c-1.385 0-2.5 1.115-2.5 2.5v9c0 1.385 1.115 2.5 2.5 2.5h9c1.385 0 2.5-1.115 2.5-2.5v-9c0-1.385-1.115-2.5-2.5-2.5h-9zm.3008 1h8.3982c.997 0 1.801.8036 1.801 1.8008v8.3982c0 .997-.804 1.801-1.801 1.801h-8.3982c-.9972 0-1.8008-.804-1.8008-1.801v-8.3982c0-.9972.8036-1.8008 1.8008-1.8008z" fill="#bebebe"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <path d="m3 1c-1.108 0-2 0.892-2 2v10c0 1.108 0.892 2 2 2h10c1.108 0 2-0.892 2-2v-10c0-1.108-0.892-2-2-2h-10zm1 2h8c0.554 0 1 0.446 1 1v8c0 0.554-0.446 1-1 1h-8c-0.554 0-1-0.446-1-1v-8c0-0.554 0.446-1 1-1z" fill="#bebebe"/>
 </svg>

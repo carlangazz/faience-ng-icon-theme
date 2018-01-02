@@ -1,3 +1,13 @@
-<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg">
-	<path fill="#ff9000" class="warning" d="m6 2c-0.554 0-1 0.446-1 1v4h-1c-0.554 0-1 0.446-1 1v5c0 0.554 0.446 1 1 1h8c0.554 0 1-0.446 1-1v-5c0-0.554-0.446-1-1-1h-1v-4c0-0.554-0.446-1-1-1h-4zm1 2h2v3h-2v-3z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <path class="warning" d="m6 2c-0.554 0-1 0.446-1 1v4h-1c-0.554 0-1 0.446-1 1v5c0 0.554 0.446 1 1 1h8c0.554 0 1-0.446 1-1v-5c0-0.554-0.446-1-1-1h-1v-4c0-0.554-0.446-1-1-1zm1 2h2v3h-2z" fill="#ff9000"/>
 </svg>

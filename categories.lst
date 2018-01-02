@@ -1,7 +1,7 @@
 applications-accessories applications-utilities gnome-util package_utilities redhat-accessories xfce-utils
 applications-development gnome-devel package_development redhat-programming xfce-devel emblem-development
 applications-fonts
-applications-games gnome-joystick package_games redhat-games xfce-games input-gaming joystick yast_joystick zsnes
+applications-games gnome-joystick package_games redhat-games xfce-games input-gaming joystick yast_joystick zsnes fceux
 applications-graphics gnome-graphics package_graphics redhat-graphics xfce-graphics emblem-art
 applications-internet gnome-globe package_network redhat-internet stock_internet xfce-internet emblem-web
 applications-multimedia gnome-multimedia multimedia_section package_multimedia redhat-sound_video xfce-multimedia emblem-multimedia

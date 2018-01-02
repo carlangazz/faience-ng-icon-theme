@@ -17,7 +17,7 @@ folder-recent document-open-recent
 folder-remote network gnome-fs-blockdev gnome-fs-network gnome-fs-share folder-remote-ftp gnome-fs-ftp folder-remote-ssh gnome-fs-ssh folder-remote-nfs gnome-fs-nfs nfs network_fs gnome-fs-dav folder-remote-smb gnome-fs-smb samba gnome-mime-x-directory-smb-share user-share shares
 folder-saved-search application-x-gnome-saved-search
 network-server gnome-fs-server gnome-mime-x-directory-nfs-server gnome-mime-x-directory-smb-server redhat-network-server server gnome-network-properties
-network-workgroup gnome-mime-x-directory-smb-workgroup gtk-network network_local gnome-dev-network pyneighborhood_48x48 preferences-system-network xfce4-netload-plugin cmst
+network-workgroup gnome-mime-x-directory-smb-workgroup gtk-network network_local gnome-dev-network pyneighborhood_48x48 preferences-system-network xfce4-netload-plugin cmst mate-network-properties
 user-bookmarks gnome-fs-bookmark stock_bookmark
 user-desktop desktop gnome-fs-desktop emblem-desktop
 user-home folder-home folder_home gnome-fs-home

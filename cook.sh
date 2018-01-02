@@ -50,11 +50,12 @@ case $1 in
 		# Шаг первый: Преобразовываем symbolic в градиентные actions\status
 		# Преобразовываются только новые или измененные
 		# Запускаем в фоне
+		mv $HOME/.config/inkscape/preferences.xml $HOME/.config/inkscape/preferences.xml_
 		if command -v Xvfb &>/dev/null; then
-			#Xvfb :1 -screen 0 640x480x24 -fbdir /var/tmp &
-			#xorgpid="$!"
-			#trap "kill $!" EXIT
-			#export DISPLAY=:1.0
+			Xvfb :1 -screen 0 640x480x24 -fbdir /var/tmp &
+			xorgpid="$!"
+			trap "kill $! && mv $HOME/.config/inkscape/preferences.xml_ $HOME/.config/inkscape/preferences.xml" EXIT
+			export DISPLAY=:1.0
 			:
 		else
 			echo "Xvfb is missing in your system"
@@ -98,7 +99,7 @@ case $1 in
 		done
 
 		# Удаляем удаленные
-		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark Faience-ng-variant2; do
+		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark Faience-ng-mono; do
 			#OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
 			for size in 16 24 96; do
 				if [ -d "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/" ]; then
@@ -220,7 +221,7 @@ case $1 in
 	;;
 	step3)
 		#Рендерим иконки, нарисованные вручную
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-variant2; do # Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green
+		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-mono; do # Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green
 			INDIR="${CURDIR}/${theme}"
 			OUTDIR="${CURDIR}/PREBUILD/png/drawed/$theme"
 			mkdir -p "${OUTDIR}"
@@ -342,7 +343,7 @@ case $1 in
 	step4)
 		rm -rf "${CURDIR}/DESTDIR"
 		# Слияние подготовленных иконок в DESTDIR
-		for theme in Faience-ng-variant2 Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
+		for theme in Faience-ng-mono Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
 			OUTDIR="${CURDIR}/DESTDIR/${theme}"
 			mkdir -p "${OUTDIR}"
 			if [ -d "${CURDIR}/PREBUILD/png/symbolic/${theme}" ]; then
@@ -356,11 +357,11 @@ case $1 in
 				done
 			fi
 
-			if [ "$theme" == "Faience-ng-variant2" ]; then
+			if [ "$theme" == "Faience-ng-mono" ]; then
 				mkdir -p "${OUTDIR}/16x16/places";
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16/"
 				for f in $(find ${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/places -name "*.png" 2>/dev/null | egrep -v "^start"); do
 					cp -a "$f" "${OUTDIR}/16x16/places/"
 				done
@@ -436,7 +437,7 @@ case $1 in
 			done
 		done
 		# Делаем симлинки
-		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-variant2; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
+		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
 			inherits=$(egrep "^Inherits=" "${CURDIR}/${theme}/index.theme" | cut -d= -f2)
 			for size in ${OUTSIZES}; do
 				mkdir -p "${CURDIR}/DESTDIR/${theme}/${size}x${size}/"
@@ -451,7 +452,7 @@ case $1 in
 			done
 		done
 
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-variant2; do
+		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono; do
 
 			OUTDIR="${CURDIR}/DESTDIR/${theme}"
 

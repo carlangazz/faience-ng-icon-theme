@@ -29,10 +29,10 @@ dcpp-panel dcpp-32
 deadbeef-tray-icon deadbeef_tray_icon
 deluge-panel deluge-torrent-panel
 dialog-error error gtk-dialog-error messagebox_critical stock_dialog-error
-dialog-information dialog-info gtk-dialog-info info messagebox_info stock_dialog-info
+dialog-information dialog-info gtk-dialog-info info messagebox_info stock_dialog-info mate-panel-notification-area
 dialog-password gtk-dialog-authentication
 dialog-question gtk-dialog-question stock_dialog-question
-dialog-warning gtk-dialog-warning messagebox_warning stock_dialog-warning xfce4-notifyd important preferences-system-notifications gtk-caps-lock-warning
+dialog-warning gtk-dialog-warning messagebox_warning stock_dialog-warning xfce4-notifyd important preferences-system-notifications gtk-caps-lock-warning mate-notification-properties
 dropboxstatus-blank blank
 dropboxstatus-busy busy
 dropboxstatus-busy2 busy2
@@ -153,7 +153,7 @@ weather-clear-night stock_weather-night-clear weather-clear-night-000 weather-cl
 weather-clouds
 weather-clouds-night
 weather-few-clouds stock_weather-few-clouds xfce4-weather
-weather-few-clouds-night stock_weather-night-few-clouds categories:applications-astronomy
+weather-few-clouds-night stock_weather-night-few-clouds applications-astronomy
 weather-fog stock_weather-fog
 weather-overcast stock_weather-cloudy
 weather-severe-alert
@@ -170,3 +170,4 @@ krb-valid-ticket dialog-password
 rotation-allowed transform-rotate
 avatar-default stock_person stock_person-panel
 view-wrapped xapp-search-wrap
+display-brightness mate-brightness-applet

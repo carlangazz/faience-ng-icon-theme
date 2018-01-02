@@ -69,7 +69,7 @@ text-x-python application-x-python-bytecode gnome-mime-application-x-python-byte
 text-x-readme gnome-mime-text-x-readme
 text-x-script application-x-shellscript gnome-mime-application-x-shellscript gnome-mime-text-x-csh gnome-mime-text-x-install gnome-mime-text-x-sh gnome-mime-text-x-zsh shellscript
 text-x-source gnome-mime-application-xml gnome-mime-text-x-source gnome-mime-text-x-csharp gnome-mime-text-x-makefile stock_script
-text-x-sql application-vnd.oasis.opendocument.database application-x-sqlite2 application-x-sqlite3 openofficeorg3-database openofficeorg3-oasis-database application-vnd.ms-access sqlitebrowser
+text-x-sql application-vnd.oasis.opendocument.database application-x-sqlite2 application-x-sqlite3 openofficeorg3-database openofficeorg3-oasis-database application-vnd.ms-access sqlitebrowser mysql-workbench
 text-x-tex gnome-mime-application-x-tex text-x-bibtex
 text-xhtml+xml gnome-mime-application-xhtml+xml
 text-xml application-xml gnome-mime-application-xml

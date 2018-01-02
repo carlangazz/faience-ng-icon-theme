@@ -11,7 +11,7 @@ amazon-mp3-store-source amazon-store wwwamazoncom-www.amazon.com wwwamazoncouk-w
 amule
 anjuta
 anki
-application-default-icon application-x-executable
+application-default-icon application-x-executable CMakeSetup
 atom
 audacity aqualung
 audacious
@@ -80,7 +80,7 @@ frostwire
 fusion-icon
 gajim
 gbrainy
-gcolor2
+gcolor2 gtk-select-color
 gcstar
 gdm-setup gdm user_auth
 geany
@@ -110,7 +110,7 @@ gnome-mahjongg mahjongg
 gnome-mines gnomine
 gnome-network-properties mate-network-properties
 gnome-nettool gnome-networktool zenmap mate-netspeed-applet
-gnome-panel
+gnome-panel mate-panel
 gnome-panel-launcher gnome-desktop-item-edit preferences-desktop-launch-feedback mate-desktop-item-edit mate-panel-launcher
 gnome-quadrapassel quadrapassel
 gnome-robots gnobots2
@@ -140,7 +140,7 @@ guake guake-notification guake-prefs
 guayadeque
 gwibber
 haguichi
-hardinfo sysprof-icon mate-sensors-applet xfce4-cpugraph-plugin xfce4-cpufreq-plugin xfce-sensors
+hardinfo sysprof-icon mate-sensors-applet xfce4-cpugraph-plugin xfce4-cpufreq-plugin xfce-sensors mate-inhibit-applet
 help-browser gnochm gnome-help gnome-unknown gtk-help help khelpcenter stock_help stock_unknown susehelpcenter xfce-man xfce_unknown gnome-help browser-help
 homebank grisbi
 ibus ibus-setup
@@ -175,7 +175,7 @@ mcomix
 media-player-banshee banshee banshee-1
 meld
 mendeley mendeleydesktop
-menu-editor alacarte gnome-gmenu drakmenustyle xfce4-menueditor mozo
+menu-editor alacarte gnome-gmenu drakmenustyle xfce4-menueditor mozo menulibre
 midori
 minitube
 minitunes itunes
@@ -229,7 +229,7 @@ ppa
 poedit gnome-translate
 podcast library-podcast gpodder
 preferences-color gcolor2
-preferences-desktop-accessibility accessibility-directory access ax-applet gnome-settings-accessibility-technologies orca
+preferences-desktop-accessibility accessibility-directory access ax-applet gnome-settings-accessibility-technologies orca mate-ax-applet
 preferences-desktop-wallpaper background gnome-settings-background wallpaper xfce4-backdrop
 preferences-desktop-keyboard
 preferences-desktop-keyboard-shortcuts key_bindings ktouch klavaro gnome-settings-keybindings
@@ -267,7 +267,7 @@ stellarium
 stock_keyring badge-small keyring-manager password revelation seahorse seahorse-preferences activity-log-manager gksu dialog-password  preferences-system-privacy
 synapse
 synaptic gnome-app-install gnome-package system-installer system-software-install system-installer system-software-installer drakstats gdebi gdeb gnome-apt kentoo kpackage kynpatic package-manager-icon pirut porthole rpmdrake update-notifier yumex aptdaemon-download
-system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja Thunar thunar
+system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja Thunar thunar mate-panel-drawer
 system-switch-java
 telepathy
 terminator
@@ -306,7 +306,7 @@ wordpress
 workspace-switcher gnome-panel-workspace-switcher xfce4-workspaces mate-panel-workspace-switcher
 WorldOfGoo
 Wunderlist wunderlist
-wxbanker gnucash-icon emblem-sales
+wxbanker gnucash-icon emblem-sales mate-invest-applet
 xbmc
 xchat xchat-gnome xchat-mini smuxi-frontend-gnome polari hexchat
 xfce4-appfinder mate-system-log

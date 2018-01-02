@@ -2,4 +2,11 @@
 Name=Faience-ng
 Inherits=Adwaita,gnome,hicolor
 Comment=Faience Next Generation
+DesktopDefault=48
+ToolbarDefault=16
+ToolbarSizes=16,22,32,48
+MainToolbarDefault=16
+MainToolbarSizes=16,22,32,48
+PanelDefault=22
+PanelSizes=16,22,32,48,64,128,256
 Directories=
