@@ -25,4 +25,5 @@ user-trash emptytrash gnome-fs-trash-empty gnome-stock-trash trashcan_empty xfce
 start-here-gnome start-here
 start-here-gnome-symbolic start-here-symbolic
 start-here-xfce xfce4-whiskermenu xfce4-panel-menu
+distributor-logo-manjaro manjaro
 start-here-manjaro manjaro

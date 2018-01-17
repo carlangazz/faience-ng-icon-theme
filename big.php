@@ -1,7 +1,5 @@
 <?php
 
-// Sorry for ugly code
-
 define('CURDIR', __DIR__);
 
 if (isset($_SERVER['argv'][2])) {

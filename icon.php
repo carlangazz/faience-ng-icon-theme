@@ -1,7 +1,5 @@
 <?php
 
-// Sorry for ugly code
-
 define('CURDIR', __DIR__);
 
 if ($_SERVER['argv'][1] == 'Faience-ng') {

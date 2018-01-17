@@ -510,6 +510,9 @@ case $1 in
 			ln -s "$d"
 			gtk-update-icon-cache -fi $d/
 		done
+		if command -v xfconf-query &>/dev/null; then
+			xfconf-query -c xsettings -p /Net/IconThemeName -s Faience-ng-mono
+		fi
 	;;
 	release)
 		VERSION=$(git show -s --format=%cd --date=format:%Y%m%d HEAD)

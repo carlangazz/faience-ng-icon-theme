@@ -1,0 +1,340 @@
+{
+	"geany": {
+		"fg": {
+			"color": "#aa0000",
+			"start": "#d40000",
+			"end": "#aa0000"
+		},
+		"bg": {
+			"color": "#FEC006",
+			"start": "#fce94f",
+			"end": "#c4a000"
+		}
+	},
+	"atril": {
+		"fg": {
+			"color": "#aa0000",
+			"start": "#d40000",
+			"end": "#aa0000"
+		},
+		"bg": {
+			"color": "#e6eef7",
+			"start": "#e6eef7",
+			"end": "#8ab0d8"
+		}
+	},
+	"filezilla": {
+		"fg": {
+			"color": "#ffffff",
+			"start": "#ffffff",
+			"end": "#ffffff"
+		},
+		"bg": {
+			"color": "#ff0505",
+			"start": "#ff0505",
+			"end": "#a00000"
+		}
+	},
+	"mpv": {
+		"fg": {
+			"color": "#e6e2e8",
+			"start": "#ffffff",
+			"end": "#babdb6"
+		},
+		"bg": {
+			"color": "#672168",
+			"start": "#6b3c74",
+			"end": "#320f38"
+		}
+	},
+	"viewnior": {
+		"fg": {
+			"color": "#ffffff",
+			"start": "#ffffff",
+			"end": "#ffffff"
+		},
+		"bg": {
+			"color": "#ff4746",
+			"start": "#ff4746",
+			"end": "#bc211a"
+		}
+	},
+	"uget": {
+		"fg": {
+			"color": "#3e5530",
+			"start": "#3e5530",
+			"end": "#28371f"
+		},
+		"bg": {
+			"color": "#88cd5a",
+			"start": "#88cd5a",
+			"end": "#50a925"
+		}
+	},
+	"sublime-text": {
+		"fg": {
+			"color": "#ffab36",
+			"start": "#ffd062",
+			"end": "#f18304"
+		},
+		"bg": {
+			"color": "#555555",
+			"start": "#555555",
+			"end": "#222222"
+		}
+	},
+	"limbo": {
+		"fg": {
+			"color": "#4d4d4d",
+			"start": "#4d4d4d",
+			"end": "#222222"
+		},
+		"bg": {
+			"color": "#ffffff",
+			"start": "#dddddd",
+			"end": "#babdb6"
+		}
+	},
+	"telegram": {
+		"fg": {
+			"color": "#ffffff",
+			"start": "#ffffff",
+			"end": "#babdb6"
+		},
+		"bg": {
+			"color": "#37a0f2",
+			"start": "#37a0f2",
+			"end": "#2770aa"
+		}
+	},
+	"deadbeef": {
+		"fg": {
+			"color": "#80c040",
+			"start": "#8cc651",
+			"end": "#75b03a"
+		},
+		"bg": {
+			"color": "#5E5E5E",
+			"start": "#767676",
+			"end": "#212121"
+		}
+	},
+	"meld": {
+		"fg": {
+			"color": "#fdb245",
+			"start": "#fba841",
+			"end": "#f57900"
+		},
+		"bg": {
+			"color": "#3465a4",
+			"start": "#3465a4",
+			"end": "#3465a4"
+		}
+	},
+	"inkscape": {
+		"fg": {
+			"color": "#4d4d4d",
+			"start": "#4d4d4d",
+			"end": "#222222"
+		},
+		"bg": {
+			"color": "#ffffff",
+			"start": "#eeeeee",
+			"end": "#bbbbbb"
+		}
+	},
+	"firefox": {
+		"fg": {
+			"color": "#F6990A",
+			"start": "#F6990A",
+			"end": "#B83903"
+		},
+		"bg": {
+			"color": "#0F80BC",
+			"start": "#0F80BC",
+			"end": "#00022F"
+		}
+	},
+	"teamviewer": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#137eff",
+			"start": "#137eff",
+			"end": "#0b3efd"
+		}
+	},
+	"mate": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#55c845",
+			"start": "#55c845",
+			"end": "#3b8132"
+		}
+	},
+	"vivaldi": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#f51d30",
+			"start": "#f51d30",
+			"end": "#e21838"
+		}
+	},
+	"ms-word": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#5072e1",
+			"start": "#5072e1",
+			"end": "#27429c"
+		}
+	},
+	"mysqlworkbench": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#396aa1",
+			"start": "#396aa1",
+			"end": "#233d65"
+		}
+	},
+	"pragha": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#4284ad",
+			"start": "#4284ad",
+			"end": "#224f7c"
+		}
+	},
+	"tomahawk": {
+		"fg": {
+			"color": "#ffffff",
+			"start": "#ffffff",
+			"end": "#ffffff"
+		},
+		"bg": {
+			"color": "#ff4746",
+			"start": "#ff4746",
+			"end": "#bc211a"
+		}
+	},
+	"start-here-manjaro": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#16a085",
+			"start": "#16a085",
+			"end": "#12866f"
+		}
+	},
+	"love": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#e74a99",
+			"start": "#e74a99",
+			"end": "#27aae1"
+		}
+	},
+	"qbittorrent": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#72b4f5",
+			"start": "#72b4f5",
+			"end": "#356ebf"
+		}
+	},
+	"lollypop": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#ff8aac",
+			"start": "#ff8aac",
+			"end": "#ff3677"
+		}
+	},
+	"hp_logo": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#5287d7",
+			"start": "#5287d7",
+			"end": "#2557a3"
+		}
+	},
+	"higan": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#FF7F7F",
+			"start": "#FF7F7F",
+			"end": "#E01818"
+		}
+	},
+	"icarus": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#8181F6",
+			"start": "#8181F6",
+			"end": "#3643B5"
+		}
+	},
+	"d-feet": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#555555",
+			"start": "#555555",
+			"end": "#222222"
+		}
+	},
+	"netbeans": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#7C9BD2",
+			"start": "#7C9BD2",
+			"end": "#55719C"
+		}
+	},
+	"mega": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#ff4746",
+			"start": "#ff4746",
+			"end": "#bc211a"
+		}
+	},
+	"yad": {
+		"fg": {
+			"color": "#ffffff"
+		},
+		"bg": {
+			"color": "#67d441",
+			"start": "#67d441",
+			"end": "#2b930b"
+		}
+	}
+}

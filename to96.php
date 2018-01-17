@@ -1,6 +1,5 @@
 <?php
 
-// Sorry for ugly code
 
 define('CURDIR', __DIR__);
 
