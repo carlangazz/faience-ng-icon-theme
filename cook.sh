@@ -46,7 +46,7 @@ OUTSIZES="8 16 22 24 32 48 256" #256
 
 case $1 in
 	step1)
-		TYPES="actions places status apps devices categories" #!  apps devices
+		TYPES="actions apps categories devices mimetypes places status"
 		# Шаг первый: Преобразовываем symbolic в градиентные actions\status
 		# Преобразовываются только новые или измененные
 		# Запускаем в фоне
@@ -352,7 +352,7 @@ case $1 in
 
 			rm -rf "${OUTDIR}/16x16/apps" "${OUTDIR}/16x16/devices" "${OUTDIR}/16x16/categories"
 			if [ -d "${CURDIR}/DESTDIR/${theme}/16x16/places" ]; then
-				for f in $(find ${CURDIR}/DESTDIR/${theme}/16x16/places -name "*.png" 2>/dev/null | egrep -v "^start"); do
+				for f in $(find ${CURDIR}/DESTDIR/${theme}/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
 					rm -f "$f"
 				done
 			fi
@@ -362,7 +362,8 @@ case $1 in
 				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16/"
 				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16/"
 				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				for f in $(find ${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/places -name "*.png" 2>/dev/null | egrep -v "^start"); do
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/mimetypes" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				for f in $(find ${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
 					cp -a "$f" "${OUTDIR}/16x16/places/"
 				done
 			fi
@@ -450,6 +451,7 @@ case $1 in
 					done
 				done
 			done
+			ln -s "../Faience-ng/symbolic" "${CURDIR}/DESTDIR/${theme}/symbolic"
 		done
 
 		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono; do
@@ -461,10 +463,15 @@ case $1 in
 			for size in ${OUTSIZES} symbolic; do
 				for type in actions apps categories devices emblems mimetypes places status stock; do
 					#mkdir -p "${OUTDIR}/${size}x${size}/${type}"
-					[ ! -d "${OUTDIR}/${size}x${size}/${type}" ] && continue
-					dirs+="${size}x${size}/${type},"
+					if [ "$size" = "symbolic" ]; then
+						d="symbolic"
+					else
+						d="${size}x${size}"
+					fi
+					[ ! -d "${OUTDIR}/${d}/${type}" ] && continue
+					dirs+="${d}/${type},"
 					echo >> "${OUTDIR}/index.theme"
-					echo "[${size}x${size}/${type}]" >> "${OUTDIR}/index.theme"
+					echo "[${d}/${type}]" >> "${OUTDIR}/index.theme"
 					echo "Context=$(get_context ${type})" >> "${OUTDIR}/index.theme"
 					if [ "${size}" = "symbolic" ]; then
 						echo "Size=16" >> "${OUTDIR}/index.theme"

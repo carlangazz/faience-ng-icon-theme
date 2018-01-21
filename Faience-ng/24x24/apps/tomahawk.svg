@@ -14,7 +14,7 @@
    sodipodi:docname="tomahawk.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06">
   <metadata
-     id="metadata46">
+     id="metadata48">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -33,9 +33,9 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="462"
-     inkscape:window-height="430"
-     id="namedview44"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview46"
      showgrid="false"
      inkscape:zoom="9.8333333"
      inkscape:cx="12"
@@ -215,7 +215,7 @@
     <filter
        id="w">
       <feGaussianBlur
-         stdDeviation="0.26998568"
+         stdDeviation="0.20998568"
          id="feGaussianBlur29" />
     </filter>
     <linearGradient
@@ -238,9 +238,8 @@
   <g
      id="main">
     <path
-       style="opacity:0.6;fill:#000000;filter:url(#w)"
-       inkscape:connector-curvature="0"
-       d="m 12,5.5 a 7,7 0 0 0 -7,7 7,7 0 0 0 7,7 7,7 0 0 0 7,-7 7,7 0 0 0 -7,-7 z M 12,7 a 5.5,5.5 0 0 1 5.5,5.5 5.5,5.5 0 0 1 -2.5,4.6074 V 8.5 h -2 v 3 l -4,-3 v 7 l 4,-3 v 5.4062 a 5.5,5.5 0 0 1 -1,0.09375 5.5,5.5 0 0 1 -5.5,-5.5 5.5,5.5 0 0 1 5.5,-5.5 z"
+       style="opacity:0.3;fill:#000000"
+       d="M 12 6.5 A 5.5 5.5 0 0 0 6.5 12 A 5.5 5.5 0 0 0 6.5253906 12.486328 A 5.5 5.5 0 0 1 9 8.3925781 L 9 8 L 9.2929688 8.2207031 A 5.5 5.5 0 0 1 12 7.5 A 5.5 5.5 0 0 1 14.279297 8 L 15 8 L 15 8.3964844 A 5.5 5.5 0 0 1 17.474609 12.513672 A 5.5 5.5 0 0 0 17.5 12 A 5.5 5.5 0 0 0 12 6.5 z M 13 12 L 9 15 L 9 16 L 13 13 L 13 12 z M 5.0234375 12.458984 A 7 7 0 0 0 5 13 A 7 7 0 0 0 12 20 A 7 7 0 0 0 19 13 A 7 7 0 0 0 18.976562 12.541016 A 7 7 0 0 1 12 19 A 7 7 0 0 1 5.0234375 12.458984 z "
        id="path899" />
     <path
        id="base"
