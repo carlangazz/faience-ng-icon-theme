@@ -99,7 +99,7 @@ case $1 in
 		done
 
 		# Удаляем удаленные
-		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark Faience-ng-mono; do
+		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark; do # Faience-ng-mono
 			#OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
 			for size in 16 24 96; do
 				if [ -d "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/" ]; then
@@ -123,7 +123,7 @@ case $1 in
 			INDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
 			OUTDIR="${CURDIR}/PREBUILD/png/symbolic/${theme}"
 			mkdir -p "${OUTDIR}"
-			for type in actions places status apps devices categories; do
+			for type in actions places status apps devices mimetypes categories; do
 				for size in ${OUTSIZES}; do
 					case "$size" in
 						16)
@@ -221,7 +221,7 @@ case $1 in
 	;;
 	step3)
 		#Рендерим иконки, нарисованные вручную
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-mono; do # Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green
+		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green; do # Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green
 			INDIR="${CURDIR}/${theme}"
 			OUTDIR="${CURDIR}/PREBUILD/png/drawed/$theme"
 			mkdir -p "${OUTDIR}"
@@ -343,30 +343,54 @@ case $1 in
 	step4)
 		rm -rf "${CURDIR}/DESTDIR"
 		# Слияние подготовленных иконок в DESTDIR
-		for theme in Faience-ng-mono Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
+		for theme in Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green; do
+			OUTDIR="${CURDIR}/DESTDIR/${theme}"
+			mkdir -p "${OUTDIR}"
+			if [ -d "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}" ]; then
+				#cp -aT "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}" "${OUTDIR}"
+				mkdir -p "${OUTDIR}/16x16/places"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/mimetypes" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				for f in $(find ${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
+					cp -a "$f" "${OUTDIR}/16x16/places/"
+				done
+			fi
+
+			case $theme in
+				*Blue|*Green)
+					lns=${theme/-Blue/}
+					lns=${lns/-Green/}
+					mkdir -p "${CURDIR}/DESTDIR/${theme}/16x16"
+					ln -s "../../${lns}/16x16/places" "${CURDIR}/DESTDIR/${theme}/16x16/places"
+				;;
+			esac
+		done
+
+		for theme in Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
 			OUTDIR="${CURDIR}/DESTDIR/${theme}"
 			mkdir -p "${OUTDIR}"
 			if [ -d "${CURDIR}/PREBUILD/png/symbolic/${theme}" ]; then
 				cp -aT "${CURDIR}/PREBUILD/png/symbolic/${theme}" "${OUTDIR}"
+				rm -rf "${OUTDIR}/16x16/apps" "${OUTDIR}/16x16/devices" "${OUTDIR}/16x16/categories"
+				if [ -d "${CURDIR}/DESTDIR/${theme}/16x16/places" ]; then
+					for f in $(find ${CURDIR}/DESTDIR/${theme}/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
+						rm -f "$f"
+					done
+				fi
 			fi
 
-			rm -rf "${OUTDIR}/16x16/apps" "${OUTDIR}/16x16/devices" "${OUTDIR}/16x16/categories"
-			if [ -d "${CURDIR}/DESTDIR/${theme}/16x16/places" ]; then
-				for f in $(find ${CURDIR}/DESTDIR/${theme}/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
-					rm -f "$f"
-				done
-			fi
-
-			if [ "$theme" == "Faience-ng-mono" ]; then
-				mkdir -p "${OUTDIR}/16x16/places";
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/mimetypes" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				for f in $(find ${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
-					cp -a "$f" "${OUTDIR}/16x16/places/"
-				done
-			fi
+			#if [ "$theme" == "Faience-ng-mono" ]; then
+				#mkdir -p "${OUTDIR}/16x16/places";
+				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/mimetypes" "${CURDIR}/DESTDIR/${theme}/16x16/"
+				#for f in $(find ${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
+				#	cp -a "$f" "${OUTDIR}/16x16/places/"
+				#done
+			#fi
 
 			if [ -d "${CURDIR}/PREBUILD/png/drawed/${theme}" ]; then
 				cp -aT "${CURDIR}/PREBUILD/png/drawed/${theme}" "${OUTDIR}"
@@ -438,7 +462,7 @@ case $1 in
 			done
 		done
 		# Делаем симлинки
-		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
+		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
 			inherits=$(egrep "^Inherits=" "${CURDIR}/${theme}/index.theme" | cut -d= -f2)
 			for size in ${OUTSIZES}; do
 				mkdir -p "${CURDIR}/DESTDIR/${theme}/${size}x${size}/"
@@ -454,7 +478,7 @@ case $1 in
 			ln -s "../Faience-ng/symbolic" "${CURDIR}/DESTDIR/${theme}/symbolic"
 		done
 
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono; do
+		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green; do
 
 			OUTDIR="${CURDIR}/DESTDIR/${theme}"
 
@@ -519,6 +543,7 @@ case $1 in
 		done
 		if command -v xfconf-query &>/dev/null; then
 			xfconf-query -c xsettings -p /Net/IconThemeName -s Faience-ng-mono
+			xfconf-query -c xsettings -p /Gtk/IconSizes -s "panel-menu=24,24:panel=24,24:gtk-button=16,16:gtk-large-toolbar=24,24"
 		fi
 	;;
 	release)

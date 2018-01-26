@@ -1,0 +1,5 @@
+[Icon Theme]
+Name=Faience-ng-mono-Blue
+Inherits=Faience-ng-Blue,Faience-ng-mono,Faience-ng
+Comment=Faience Next Generation (Mono-Blue)
+Directories=
