@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   width="24"
+   height="24"
+   version="1.0"
+   sodipodi:docname="ds-emulator.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <metadata
+     id="metadata49">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview47"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3335"
+       x1="11.375"
+       x2="11.375"
+       y1="22"
+       y2="-9.8173"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3330"
+         offset="0" />
+      <stop
+         id="stop3333"
+         stop-opacity="0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3181"
+       x1="-3.0608"
+       x2="-3.0608"
+       y1="27.258"
+       y2="7.2537"
+       gradientTransform="translate(12.119 -7.2582)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3189"
+         stop-color="#624087"
+         offset="0" />
+      <stop
+         id="stop3191"
+         stop-color="#8d73a4"
+         offset="1" />
+    </linearGradient>
+    <filter
+       id="filter3194"
+       x="-.18"
+       y="-.18"
+       width="1.36"
+       height="1.36"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur3196"
+         stdDeviation="1.2" />
+    </filter>
+    <clipPath
+       id="clipPath2849">
+      <rect
+         id="rect2851"
+         x="1"
+         y="1"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         fill="#fff"
+         fill-rule="evenodd" />
+    </clipPath>
+    <linearGradient
+       id="linearGradient3845"
+       x1="11"
+       x2="21"
+       y1="19.5"
+       y2="19.5"
+       gradientTransform="translate(1,-1)"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="reflect">
+      <stop
+         id="stop3833"
+         stop-color="#fff"
+         offset="0" />
+      <stop
+         id="stop3821"
+         stop-color="#fff"
+         stop-opacity=".49804"
+         offset=".75" />
+      <stop
+         id="stop3835"
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3961"
+       x1="10"
+       x2="10"
+       y1="1"
+       y2="16"
+       gradientTransform="translate(1,-1)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3825"
+         stop-color="#fff"
+         offset="0" />
+      <stop
+         id="stop3829"
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(0,2)">
+    <g
+       id="g3337"
+       transform="translate(1,-1)">
+      <rect
+         id="rect3371"
+         x=".5"
+         y=".5"
+         width="21"
+         height="21.5"
+         rx="2.5"
+         ry="2.5"
+         fill="url(#linearGradient3335)"
+         opacity=".3" />
+      <rect
+         id="rect2553"
+         x="1"
+         y="2"
+         width="20"
+         height="20"
+         rx="2.381"
+         ry="2.3256"
+         opacity=".5" />
+    </g>
+    <rect
+       id="rect3173"
+       x="2"
+       width="20"
+       height="20"
+       rx="2"
+       ry="2"
+       fill="url(#linearGradient3181)"
+       fill-rule="evenodd" />
+    <path
+       id="rect3050"
+       d="m4 0c-1.108 0-2 0.892-2 2v16c0 1.108 0.892 2 2 2h16c1.108 0 2-0.892 2-2v-16c0-1.108-0.892-2-2-2h-16zm0 1.0312h16c0.5497 0 0.96875 0.41905 0.96875 0.96875v16c0 0.5497-0.41905 0.96875-0.96875 0.96875h-16c-0.5497 0-0.96875-0.41905-0.96875-0.96875v-16c0-0.5497 0.41905-0.96875 0.96875-0.96875z"
+       fill="url(#linearGradient3961)"
+       fill-rule="evenodd"
+       opacity=".35" />
+    <path
+       id="path3235"
+       d="m4 20c-1.108 0-2-0.892-2-2v-1c0 1.108 0.892 2 2 2h16c1.108 0 2-0.892 2-2v1c0 1.108-0.892 2-2 2h-16z"
+       fill="url(#linearGradient3845)"
+       fill-rule="evenodd"
+       opacity=".2" />
+  </g>
+  <g
+     id="layer2"
+     transform="translate(0,2)">
+    <rect
+       id="rect2410"
+       transform="translate(1,-1)"
+       x="3"
+       y="3"
+       width="16"
+       height="16"
+       rx="2"
+       ry="2"
+       clip-path="url(#clipPath2849)"
+       fill="#fff"
+       filter="url(#filter3194)"
+       opacity=".15" />
+  </g>
+  <defs
+     id="defs37">
+    <filter
+       id="w">
+      <feGaussianBlur
+         stdDeviation="0.20998568"
+         id="feGaussianBlur29" />
+    </filter>
+    <linearGradient
+       id="a"
+       gradientUnits="userSpaceOnUse"
+       x1="8"
+       y1="1"
+       x2="8"
+       y2="15">
+      <stop
+         stop-color="#fafafa"
+         offset="0"
+         id="stop32" />
+      <stop
+         stop-color="#ebebeb"
+         offset="1"
+         id="stop34" />
+    </linearGradient>
+  </defs>
+  <g
+     id="main">
+    <path
+       style="opacity:0.3;fill:#000000"
+       d="M 9.4375 6 C 9.18648 6 9 6.18648 9 6.4375 L 9 7.4375 C 9 7.18648 9.18648 7 9.4375 7 L 14.5625 7 C 14.81352 7 15 7.18648 15 7.4375 L 15 6.4375 C 15 6.18648 14.81352 6 14.5625 6 L 9.4375 6 z M 8 9.5625 L 8 10.5625 C 8 11.35023 8.64977 12 9.4375 12 L 14.5625 12 C 15.35023 12 16 11.35023 16 10.5625 L 16 9.5625 C 16 10.35023 15.35023 11 14.5625 11 L 9.4375 11 C 8.64977 11 8 10.35023 8 9.5625 z M 9.4375 14.03125 C 9.19691 14.03125 9.03125 14.19691 9.03125 14.4375 L 9.03125 15.4375 C 9.03125 15.19691 9.19691 15.03125 9.4375 15.03125 L 14.5625 15.03125 C 14.80309 15.03125 14.96875 15.19691 14.96875 15.4375 L 14.96875 14.4375 C 14.96875 14.19691 14.80309 14.03125 14.5625 14.03125 L 9.4375 14.03125 z M 8 17.5625 L 8 18.5625 C 8 19.35484 8.64516 20 9.4375 20 L 14.5625 20 C 15.35484 20 16 19.35484 16 18.5625 L 16 17.5625 C 16 18.35484 15.35484 19 14.5625 19 L 9.4375 19 C 8.64516 19 8 18.35484 8 17.5625 z "
+       id="path39" />
+    <path
+       d="m5.4375 1c-0.78773 0-1.4375 0.64977-1.4375 1.4375v3.125c0 0.78773 0.64977 1.4375 1.4375 1.4375h5.125c0.78773 0 1.4375-0.64977 1.4375-1.4375v-3.125c0-0.78773-0.64977-1.4375-1.4375-1.4375zm0 1h5.125c0.25102 0 0.4375 0.18648 0.4375 0.4375v3.125c0 0.25102-0.18648 0.4375-0.4375 0.4375h-5.125c-0.25102 0-0.4375-0.18648-0.4375-0.4375v-3.125c0-0.25102 0.18648-0.4375 0.4375-0.4375zm0 7c-0.79234 0-1.4375 0.64516-1.4375 1.4375v3.125c0 0.79234 0.64516 1.4375 1.4375 1.4375h5.125c0.79234 0 1.4375-0.64516 1.4375-1.4375v-3.125c0-0.79234-0.64516-1.4375-1.4375-1.4375zm0 1.0312h5.125c0.24059 0 0.40625 0.16566 0.40625 0.40625v3.125c0 0.24059-0.16566 0.40625-0.40625 0.40625h-5.125c-0.24059 0-0.40625-0.16566-0.40625-0.40625v-3.125c0-0.24059 0.16566-0.40625 0.40625-0.40625z"
+       fill="#fff"
+       id="base"
+       transform="translate(4,4)" />
+  </g>
+</svg>

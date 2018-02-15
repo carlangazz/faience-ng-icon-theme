@@ -1,8 +1,8 @@
 abiword abiword_48
 accessories-calculator calc galculator gnome-calculator speedcrunch applications-mathematics kcalc
-accessories-character-map gnome-character-map gucharmap kcharselect
+accessories-character-map gnome-character-map gucharmap kcharselect gnome-characters
 accessories-dictionary gnome-dictionary stardict goldendict audiobook xfce4-dict
-accessories-text-editor gnome-word kedit mousepad text-editor xfce-edit geany
+accessories-text-editor gnome-word kedit mousepad text-editor xfce-edit geany gedit
 acroread AdobeReader AdobeReader8 AdobeReader9 AdobeReader10
 activity-log-manager
 adobe-air AdobeAIR
@@ -22,7 +22,7 @@ baobab
 blender
 bluefish bluefish-icon
 bluegriffon
-brasero nautilus-cd-burner k3b xfburn asunder
+brasero nautilus-cd-burner k3b xfburn asunder stock_xfburn
 bug-buddy abrt gnome-abrt applications-debugging
 caffeine xfce4-time-out-plugin
 calibre-gui
@@ -32,7 +32,7 @@ computerjanitor bleachbit
 config-users kuser system-config-users susers system-users
 ccc_large
 ccsm simple-ccsm
-cheese
+cheese org.gnome.Cheese
 chromium-browser chromium
 chromium-browser2
 clementine application-x-clementine
@@ -58,13 +58,13 @@ ejecter
 emacs emacs23
 emerald-theme-manager-icon
 emesene
-empathy
+empathy org.gnome.Empathy
 eog gthumb gwenview gpicview ristretto applications-viewers mate-eyes-applet eom
 evernote nixnote
 evince atril
 evolution evolution-mail kmail sylpheed claws-mail xfce-mail applications-mail
-evolution-calendar gnome-calendar office-calendar office-date plan system-config-date ximian-evolution-calendar stock_calendar x-office-calendar korganizer xfcalendar vcalendar
-evolution-tasks gtg stock_task xfce4-clipman-plugin
+evolution-calendar gnome-calendar office-calendar office-date plan system-config-date ximian-evolution-calendar stock_calendar x-office-calendar korganizer xfcalendar vcalendar org.gnome.Calendar
+evolution-tasks gtg stock_task xfce4-clipman-plugin clipit-trayicon
 exaile
 f-spot
 facebook goa-account-facebook
@@ -75,7 +75,7 @@ firefox mozilla-firefox firefox-3.0 firefox-3.5 firefox-4.0
 firefox-original
 flash adobeflashplugin flash-player-properties flashplayer
 flashplayer adobe-flashplayer
-flickr postr kflickr
+flickr postr kflickr goa-account-flickr
 frostwire
 fusion-icon
 gajim
@@ -92,7 +92,7 @@ gloobus gloobus-preview covergloobus
 gmail gmailwatcher checkgmail
 gnome-about-logo gnome-logo-icon-transparent mate-panel-notification-area
 gnome-activity-journal zeitgeist
-gnome-aisleriot applications-cardgames
+gnome-aisleriot applications-cardgames gnome-hearts gnome-hearts.png
 gnome-contacts addressbook office-address-book x-office-address-book address-book-new stock_new-address-book x-office-address-book mugshot
 gnome-display-properties display-capplet preferences-desktop-display system-config-displayca mate-preferences-desktop-display msd-xrandr
 gnome-do
@@ -119,7 +119,7 @@ gnome-session session-properties xfce4-session mate-session-properties
 gnome-settings-default-applications preferences-desktop-default-applications
 gnome-shutdown boot gnome-session-halt system-shut-down xfsm-shutdown system-shutdown
 gnome-sound-recorder
-gnome-sticky-notes-applet evolution-memos gnome-note gnote sticky-notes stock_insert-note stock_notes tomboy-note xfce4-notes-plugin bijiben mate-sticky-notes-applet
+gnome-sticky-notes-applet evolution-memos gnome-note gnote sticky-notes stock_insert-note stock_notes tomboy-note xfce4-notes-plugin bijiben mate-sticky-notes-applet org.gnome.bijiben
 gnome-sudoku
 gnome-swell-foop gnome-samegnome
 gnome-tali gtali tali applications-boardgames
@@ -140,7 +140,7 @@ guake guake-notification guake-prefs
 guayadeque
 gwibber
 haguichi
-hardinfo sysprof-icon mate-sensors-applet xfce4-cpugraph-plugin xfce4-cpufreq-plugin xfce-sensors mate-inhibit-applet
+hardinfo sysprof-icon mate-sensors-applet xfce4-cpugraph-plugin xfce4-cpufreq-plugin xfce-sensors mate-inhibit-applet lshw
 help-browser gnochm gnome-help gnome-unknown gtk-help help khelpcenter stock_help stock_unknown susehelpcenter xfce-man xfce_unknown gnome-help browser-help
 homebank grisbi
 ibus ibus-setup
@@ -148,7 +148,7 @@ iceweasel
 icedove
 im-chooser eekboard
 imagemagick display.im6
-indicator-weather
+indicator-weather org.gnome.Weather
 inkscape
 internet-archive
 jamendo
@@ -197,7 +197,7 @@ nm-stage01-connecting08 nm-stage02-connecting08 nm-stage03-connecting08 nm-vpn-c
 nm-stage01-connecting09 nm-stage02-connecting09 nm-stage03-connecting09 nm-vpn-connecting09
 nm-stage01-connecting10 nm-stage02-connecting10 nm-stage03-connecting10 nm-vpn-connecting10
 nm-stage01-connecting11 nm-stage02-connecting11 nm-stage03-connecting11 nm-vpn-connecting11
-nvidia-settings nvidia-current-settings
+nvidia-settings nvidia-current-settings nvidia-ddm-mx
 onboard
 openttd
 ooo-base ooo-base3.0 openofficeorg3.0-base openofficeorg3-base openofficeorg-base
@@ -214,7 +214,7 @@ openjdk-6 openjdk-7 openjdk-8 openjdk-9 java-1.8.0 sun-java6 sun-java7 sun-java 
 openshot
 opera opera-browser
 opera-widget-manager opera-widget
-palimpsest gnome-device-manager gnome-disks mate-disk
+palimpsest gnome-device-manager gnome-disks mate-disk gsmartcontrol disk-manager
 partner preferences-management-service
 phatch
 phatch-inspector
@@ -228,7 +228,7 @@ playonlinux
 ppa
 poedit gnome-translate
 podcast library-podcast gpodder
-preferences-color gcolor2
+preferences-color gnome-color-manager
 preferences-desktop-accessibility accessibility-directory access ax-applet gnome-settings-accessibility-technologies orca mate-ax-applet
 preferences-desktop-wallpaper background gnome-settings-background wallpaper xfce4-backdrop
 preferences-desktop-keyboard
@@ -266,14 +266,14 @@ steam  steampowered
 stellarium
 stock_keyring badge-small keyring-manager password revelation seahorse seahorse-preferences activity-log-manager gksu dialog-password  preferences-system-privacy
 synapse
-synaptic gnome-app-install gnome-package system-installer system-software-install system-installer system-software-installer drakstats gdebi gdeb gnome-apt kentoo kpackage kynpatic package-manager-icon pirut porthole rpmdrake update-notifier yumex aptdaemon-download
-system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja Thunar thunar mate-panel-drawer
+synaptic gnome-app-install gnome-package system-installer system-software-install system-installer system-software-installer drakstats gdebi gdeb gnome-apt kentoo kpackage kynpatic package-manager-icon pirut porthole rpmdrake update-notifier yumex aptdaemon-download mx-packageinstaller
+system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja Thunar thunar mate-panel-drawer sunflower org.gnome.Nautilus
 system-switch-java
 telepathy
 terminator
-time-admin config-date preferences-system-time clocks timer-applet xfce4-timer orage_globaltime
+time-admin config-date preferences-system-time clocks timer-applet xfce4-timer  orage_globaltime org.gnome.clocks mx-clocky
 tomboy knotes xpad
-totem kaffeine parole
+totem kaffeine parole org.gnome.Totem
 thunderbird mozilla-thunderbird thunderbird-icon
 tracker
 transmission
@@ -318,7 +318,7 @@ yahoo goa-account-yahoo
 youtube minitube
 minitube smtube
 zim
-uget-icon
+uget uget-icon
 smartgit meld-version-control
 sqlitebrowser mysql-workbench
 system-search gnome-searchtool kfind search catfish preferences-system-search
@@ -327,3 +327,8 @@ vivaldi vivaldi-stable vivaldi-snapshot
 lollypop org.gnome.Lollypop
 qbittorrent qbittorrent-tray qbittorrent-tray-light qbittorrent-tray-dark
 peek com.uploadedlobster.peek
+plex plexhometheater plexmediamanager
+maxthon maxthon-desktop
+boincmgr boinc
+2048 gnome-2048
+yandex-browser yandex-browser-beta

@@ -65,7 +65,14 @@ if ($type === 1) {
 	  <stop stop-color="#f75535" offset="1"/>
 	</linearGradient>
   ';
-  } if ((string) $xml->path['fill'] === '#ff9000') {
+  } elseif ((string) $xml->path['fill'] === '#008000') {
+    $output .= '
+  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
+    <stop stop-color="#b0e929" offset="0"/>
+    <stop stop-color="#7ea424" offset="1"/>
+  </linearGradient>
+  ';
+  } elseif ((string) $xml->path['fill'] === '#ff9000') {
 	  $output .= '
 	<linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
 	  <stop stop-color="#df880b" offset="0"/>
@@ -87,8 +94,8 @@ if ($type === 1) {
 	$sizes2[4] = floatval($sizes2[4]);
 	  $output .= '
 	<linearGradient id="b" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes2[2] . '" x2="8" y2="' . ($sizes2[2] + $sizes2[4]) . '">
-	  <stop stop-color="#ad0707" offset="0"/>
-	  <stop stop-color="#f75535" offset="1"/>
+	  <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#ad0707' : '#b0e929' ) . '" offset="0"/>
+	  <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#f75535' : '#7ea424' ) . '" offset="1"/>
 	</linearGradient>
   ';
   }
@@ -123,7 +130,7 @@ if ($type === 1) {
 
   if (count($xml->path) === 2) {
 	$path = clone($xml->path[1]);
-	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000') {
+	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000' || (string) $path['fill'] === '#008000') {
 		$path['fill'] = 'url(#b)';
 	} else {
 		$path['fill'] = '#000';
@@ -167,6 +174,13 @@ if ($type === 1) {
 	  <stop stop-color="#c81700" offset="1"/>
 	</linearGradient>
    ';
+  } elseif ((string) $xml->path['fill'] === '#008000') {
+    $output .= '
+  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
+    <stop stop-color="#b0e929" offset="0"/>
+    <stop stop-color="#7ea424" offset="1"/>
+  </linearGradient>
+  ';
   } else {
 	$output .= '
 	  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
@@ -214,7 +228,7 @@ if ($type === 1) {
 
   if (count($xml->path) === 2) {
 	$path = clone($xml->path[1]);
-	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000') {
+	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000' || (string) $path['fill'] === '#008000') {
 		$path['fill'] = 'url(#b)';
 	} else {
 		$path['fill'] = '#fff';
@@ -274,9 +288,16 @@ if ($type === 1) {
 	  <stop stop-color="#a31414" offset="1"/>
 	</radialGradient>
    ';
-  } if ((string) $xml->path['fill'] === '#ff9000') {
+  } elseif ((string) $xml->path['fill'] === '#008000') {
+    $output .= '
+  <radialGradient id="a" gradientUnits="userSpaceOnUse" cy="' . $cy . '" cx="' . $cx . '" gradientTransform="matrix(1 0 0 .' . $k . $l . $k . $l . $k . ' 0 ' . $l . '.' . $k . $l . $k . ($l+1) . ')" r="' . $r . '">
+    <stop stop-color="#b0e929" offset="0"/>
+    <stop stop-color="#7ea424" offset="1"/>
+  </linearGradient>
+  ';
+  } elseif ((string) $xml->path['fill'] === '#ff9000') {
 	  $output .= '
-	<linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
+  <radialGradient id="a" gradientUnits="userSpaceOnUse" cy="' . $cy . '" cx="' . $cx . '" gradientTransform="matrix(1 0 0 .' . $k . $l . $k . $l . $k . ' 0 ' . $l . '.' . $k . $l . $k . ($l+1) . ')" r="' . $r . '">
 	  <stop stop-color="#df880b" offset="0"/>
 	  <stop stop-color="#f7c15a" offset="1"/>
 	</linearGradient>
@@ -296,8 +317,8 @@ if ($type === 1) {
 	$sizes2[4] = floatval($sizes2[4]);
 	  $output .= '
 	<linearGradient id="b" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes2[2] . '" x2="8" y2="' . ($sizes2[2] + $sizes2[4]) . '">
-	  <stop stop-color="#c80000" offset="0"/>
-	  <stop stop-color="#f3604d" offset="1"/>
+	  <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#c80000' : '#0aad09' ) . '" offset="0"/>
+	  <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#f3604d' : '#31cb38' ) . '" offset="1"/>
 	</linearGradient>
   ';
   }
@@ -326,7 +347,7 @@ if ($type === 1) {
 
   if (count($xml->path) === 2) {
 	$path = clone($xml->path[1]);
-	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000') {
+	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000' || (string) $path['fill'] === '#008000') {
 		$path['fill'] = 'url(#b)';
 	} else {
 		$path['fill'] = '#000';

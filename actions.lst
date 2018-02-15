@@ -81,7 +81,7 @@ media-eject player-eject ejecter
 media-import-audio-cd stock_xfburn-import-session
 media-optical-audio-new audio-cd-new stock_xfburn-audio-cd
 media-optical-blank stock_xfburn-blank-cdrw
-media-optical-burn iso-image-burn media-write-cd stock_xfburn stock_xfburn-burn-cd
+media-optical-burn iso-image-burn media-write-cd stock_xfburn-burn-cd
 media-optical-copy audio-cd-duplicate stock_xfburn-data-copy
 media-optical-data-new stock_xfburn-new-data-composition
 media-optical-video-new

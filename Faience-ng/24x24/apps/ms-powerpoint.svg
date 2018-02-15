@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   width="24"
+   height="24"
+   version="1.0"
+   sodipodi:docname="ms-powerpoint.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <metadata
+     id="metadata48">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview46"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3335"
+       x1="11.375"
+       x2="11.375"
+       y1="22"
+       y2="-9.8173"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3330"
+         offset="0" />
+      <stop
+         id="stop3333"
+         stop-opacity="0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3181"
+       x1="-3.0608"
+       x2="-3.0608"
+       y1="27.258"
+       y2="7.2537"
+       gradientTransform="translate(12.119 -7.2582)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3189"
+         stop-color="#ff4714"
+         offset="0" />
+      <stop
+         id="stop3191"
+         stop-color="#ff6225"
+         offset="1" />
+    </linearGradient>
+    <filter
+       id="filter3194"
+       x="-.18"
+       y="-.18"
+       width="1.36"
+       height="1.36"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur3196"
+         stdDeviation="1.2" />
+    </filter>
+    <clipPath
+       id="clipPath2849">
+      <rect
+         id="rect2851"
+         x="1"
+         y="1"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         fill="#fff"
+         fill-rule="evenodd" />
+    </clipPath>
+    <linearGradient
+       id="linearGradient3845"
+       x1="11"
+       x2="21"
+       y1="19.5"
+       y2="19.5"
+       gradientTransform="translate(1,-1)"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="reflect">
+      <stop
+         id="stop3833"
+         stop-color="#fff"
+         offset="0" />
+      <stop
+         id="stop3821"
+         stop-color="#fff"
+         stop-opacity=".49804"
+         offset=".75" />
+      <stop
+         id="stop3835"
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3961"
+       x1="10"
+       x2="10"
+       y1="1"
+       y2="16"
+       gradientTransform="translate(1,-1)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3825"
+         stop-color="#fff"
+         offset="0" />
+      <stop
+         id="stop3829"
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(0,2)">
+    <g
+       id="g3337"
+       transform="translate(1,-1)">
+      <rect
+         id="rect3371"
+         x=".5"
+         y=".5"
+         width="21"
+         height="21.5"
+         rx="2.5"
+         ry="2.5"
+         fill="url(#linearGradient3335)"
+         opacity=".3" />
+      <rect
+         id="rect2553"
+         x="1"
+         y="2"
+         width="20"
+         height="20"
+         rx="2.381"
+         ry="2.3256"
+         opacity=".5" />
+    </g>
+    <rect
+       id="rect3173"
+       x="2"
+       width="20"
+       height="20"
+       rx="2"
+       ry="2"
+       fill="url(#linearGradient3181)"
+       fill-rule="evenodd" />
+    <path
+       id="rect3050"
+       d="m4 0c-1.108 0-2 0.892-2 2v16c0 1.108 0.892 2 2 2h16c1.108 0 2-0.892 2-2v-16c0-1.108-0.892-2-2-2h-16zm0 1.0312h16c0.5497 0 0.96875 0.41905 0.96875 0.96875v16c0 0.5497-0.41905 0.96875-0.96875 0.96875h-16c-0.5497 0-0.96875-0.41905-0.96875-0.96875v-16c0-0.5497 0.41905-0.96875 0.96875-0.96875z"
+       fill="url(#linearGradient3961)"
+       fill-rule="evenodd"
+       opacity=".35" />
+    <path
+       id="path3235"
+       d="m4 20c-1.108 0-2-0.892-2-2v-1c0 1.108 0.892 2 2 2h16c1.108 0 2-0.892 2-2v1c0 1.108-0.892 2-2 2h-16z"
+       fill="url(#linearGradient3845)"
+       fill-rule="evenodd"
+       opacity=".2" />
+  </g>
+  <g
+     id="layer2"
+     transform="translate(0,2)">
+    <rect
+       id="rect2410"
+       transform="translate(1,-1)"
+       x="3"
+       y="3"
+       width="16"
+       height="16"
+       rx="2"
+       ry="2"
+       clip-path="url(#clipPath2849)"
+       fill="#fff"
+       filter="url(#filter3194)"
+       opacity=".15" />
+  </g>
+  <defs
+     id="defs37">
+    <filter
+       id="w">
+      <feGaussianBlur
+         stdDeviation="0.20998568"
+         id="feGaussianBlur29" />
+    </filter>
+    <linearGradient
+       id="a"
+       gradientUnits="userSpaceOnUse"
+       x1="8"
+       y1="1"
+       x2="8"
+       y2="15">
+      <stop
+         stop-color="#fafafa"
+         offset="0"
+         id="stop32" />
+      <stop
+         stop-color="#ebebeb"
+         offset="1"
+         id="stop34" />
+    </linearGradient>
+  </defs>
+  <g
+     id="main">
+    <path
+       style="opacity:0.3;fill:#000000"
+       d="M 14 9 L 14 10 L 16.5 10 L 17.5 10 C 17.777 10 18 10.223 18 10.5 L 18 9.5 C 18 9.223 17.777 9 17.5 9 L 14 9 z M 9.1152344 9.0058594 C 8.7097344 8.9903924 8.2116075 9.0067206 7.6484375 9.0566406 L 7 9.1132812 L 7 10.113281 L 7.6484375 10.056641 C 8.2116075 10.006721 8.7097344 9.9903914 9.1152344 10.005859 C 9.5207844 10.021329 9.8332969 10.067614 10.029297 10.146484 C 10.530022 10.347979 10.834189 10.766316 10.943359 11.351562 C 10.989173 11.11548 11.011367 10.864454 10.988281 10.587891 C 10.928341 9.8697306 10.597677 9.3752044 10.029297 9.1464844 C 9.8332969 9.0676174 9.5207844 9.0213264 9.1152344 9.0058594 z M 14.5 11 A 1.5 1 0 0 0 14 11.058594 L 14 12.058594 A 1.5 1 0 0 1 14.5 12 A 1.5 1 0 0 1 15.796875 12.5 A 1.5 1 0 0 0 16 12 A 1.5 1 0 0 0 14.5 11 z M 9.4042969 11.470703 C 9.2636382 11.718563 9.0116574 11.865234 8.6425781 11.865234 L 8.2734375 11.865234 C 8.2728236 11.930049 8.2675781 11.93543 8.2675781 12.013672 L 8.2675781 12.865234 L 8.6425781 12.865234 C 9.2113381 12.865234 9.5332031 12.545945 9.5332031 11.984375 C 9.5332031 11.760949 9.4822826 11.602092 9.4042969 11.470703 z M 14 14 L 14 15 L 16 15 L 16 14 L 14.5 14 L 14 14 z M 19 15.5 C 19 15.777 18.777 16 18.5 16 L 18 16 L 18 17 L 18.5 17 C 18.777 17 19 16.777 19 16.5 L 19 15.5 z M 14 16 L 14 17 L 17 17 L 17 16 L 16 16 L 14 16 z M 5 17 L 5 18 L 13 20 L 13 19 L 5 17 z "
+       id="path827" />
+    <path
+       id="base"
+       d="m9 1-8 2v10l8 2v-14zm1 3v1h3.5c.277 0 .5.223.5.5v6.5h.5c.277 0 .5-.223.5-.5v-7c0-.277-.223-.5-.5-.5h-4.5zm-4.8848 1.0059c.40555.015467.71806.061753.91406.14062.56838.22872.89904.72324.95898 1.4414.11944 1.4309-.71972 2.3603-2.1406 2.3711l-.58008.0039062v1.0195 1.0176l-.50195-.007812c-.27599-.0039-.56018-.025922-.63281-.050782-.10181-.034841-.13281-.70629-.13281-2.9355v-2.8926l.64844-.056641c.56317-.04992 1.0613-.066248 1.4668-.050781zm4.8848.99414v1.0586a1.5 1 0 0 1 .5-.058594 1.5 1 0 0 1 1.5 1 1.5 1 0 0 1-1.5 1 1.5 1 0 0 1-.5-.058594v1.0586h2v1h-2v1h3v-5.5c0-.277-.223-.5-.5-.5h-2.5zm-5.5488.14844c-.16195.012204-.18359.11972-.18359.86523v.85156h.375c.56876 0 .89062-.31929.89062-.88086 0-.65477-.30785-.89429-1.082-.83594z"
+       fill="#fff"
+       transform="translate(4,4)" />
+  </g>
+</svg>
