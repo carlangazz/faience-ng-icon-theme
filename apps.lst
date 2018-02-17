@@ -17,7 +17,7 @@ audacity aqualung
 audacious
 autoplus easylife
 avant-window-navigator awn-settings
-awn-settings
+awn-settings cs-applets
 baobab
 blender
 bluefish bluefish-icon
@@ -29,7 +29,7 @@ calibre-gui
 checkbox
 comix
 computerjanitor bleachbit
-config-users kuser system-config-users susers system-users
+config-users kuser system-config-users susers system-users cs-user-accounts
 ccc_large
 ccsm simple-ccsm
 cheese org.gnome.Cheese
@@ -42,9 +42,9 @@ deadbeef
 defcon
 deja-dup
 deluge deluge-torrent ktorrent
-desktop-effects wmtweaks
+desktop-effects wmtweaks cs-desktop-effects
 desura
-devede
+devede devedeng
 devhelp
 dia
 dc++ DC++
@@ -59,12 +59,12 @@ emacs emacs23
 emerald-theme-manager-icon
 emesene
 empathy org.gnome.Empathy
-eog gthumb gwenview gpicview ristretto applications-viewers mate-eyes-applet eom
+eog gthumb gwenview gpicview ristretto applications-viewers mate-eyes-applet eom pix
 evernote nixnote
 evince atril
 evolution evolution-mail kmail sylpheed claws-mail xfce-mail applications-mail
 evolution-calendar gnome-calendar office-calendar office-date plan system-config-date ximian-evolution-calendar stock_calendar x-office-calendar korganizer xfcalendar vcalendar org.gnome.Calendar
-evolution-tasks gtg stock_task xfce4-clipman-plugin clipit-trayicon
+evolution-tasks gtg stock_task xfce4-clipman-plugin clipit-trayicon parcellite csd-clipboard cs-clipboard
 exaile
 f-spot
 facebook goa-account-facebook
@@ -80,12 +80,12 @@ frostwire
 fusion-icon
 gajim
 gbrainy
-gcolor2 gtk-select-color
+gcolor2 gcolor3 gtk-select-color
 gcstar
-gdm-setup gdm user_auth
+gdm-setup gdm user_auth lightdm-settings cs-login
 geany
 gimp mtpaint applications-painting
-gksu-root-terminal gksu-debian
+gksu-root-terminal gksu-debian cs-cat-admin
 glade glade-3 gazpacho gazpacho-icon applications-interfacedesign
 glippy glippy-panel
 gloobus gloobus-preview covergloobus
@@ -94,8 +94,8 @@ gnome-about-logo gnome-logo-icon-transparent mate-panel-notification-area
 gnome-activity-journal zeitgeist
 gnome-aisleriot applications-cardgames gnome-hearts gnome-hearts.png
 gnome-contacts addressbook office-address-book x-office-address-book address-book-new stock_new-address-book x-office-address-book mugshot
-gnome-display-properties display-capplet preferences-desktop-display system-config-displayca mate-preferences-desktop-display msd-xrandr
-gnome-do
+gnome-display-properties display-capplet preferences-desktop-display system-config-displayca mate-preferences-desktop-display msd-xrandr cs-display csd-xrandr csd-orientation cinnamon-preferences-desktop-display
+gnome-do cs-general
 gnome-documents
 gnome-freecell
 gnome-glchess pychess glchess gnome-chess
@@ -110,16 +110,16 @@ gnome-mahjongg mahjongg
 gnome-mines gnomine
 gnome-network-properties mate-network-properties
 gnome-nettool gnome-networktool zenmap mate-netspeed-applet
-gnome-panel mate-panel
-gnome-panel-launcher gnome-desktop-item-edit preferences-desktop-launch-feedback mate-desktop-item-edit mate-panel-launcher
-gnome-quadrapassel quadrapassel
+gnome-panel mate-panel xfce4-panel cs-panel
+gnome-panel-launcher gnome-desktop-item-edit preferences-desktop-launch-feedback mate-desktop-item-edit mate-panel-launcher cs-startup-programs cinnamon-panel-launcher
+gnome-quadrapassel quadrapassel lutris
 gnome-robots gnobots2
 gnome-screenshot applets-screenshooter ksnapshot screenie screenie-qt
-gnome-session session-properties xfce4-session mate-session-properties
-gnome-settings-default-applications preferences-desktop-default-applications
+gnome-session session-properties xfce4-session mate-session-properties cinnamon-session-properties
+gnome-settings-default-applications preferences-desktop-default-applications cs-default-applications
 gnome-shutdown boot gnome-session-halt system-shut-down xfsm-shutdown system-shutdown
 gnome-sound-recorder
-gnome-sticky-notes-applet evolution-memos gnome-note gnote sticky-notes stock_insert-note stock_notes tomboy-note xfce4-notes-plugin bijiben mate-sticky-notes-applet org.gnome.bijiben
+gnome-sticky-notes-applet evolution-memos gnome-note gnote sticky-notes stock_insert-note stock_notes tomboy-note xfce4-notes-plugin bijiben mate-sticky-notes-applet org.gnome.bijiben cs-desklets
 gnome-sudoku
 gnome-swell-foop gnome-samegnome
 gnome-tali gtali tali applications-boardgames
@@ -146,14 +146,14 @@ homebank grisbi
 ibus ibus-setup
 iceweasel
 icedove
-im-chooser eekboard
+im-chooser eekboard cs-input-method
 imagemagick display.im6
 indicator-weather org.gnome.Weather
 inkscape
 internet-archive
 jamendo
 jdownloader
-jockey jockey-kde applications-electronics
+jockey jockey-kde applications-electronics cs-drivers
 jokosher
 keepassx
 kupfer
@@ -228,23 +228,23 @@ playonlinux
 ppa
 poedit gnome-translate
 podcast library-podcast gpodder
-preferences-color gnome-color-manager
-preferences-desktop-accessibility accessibility-directory access ax-applet gnome-settings-accessibility-technologies orca mate-ax-applet
-preferences-desktop-wallpaper background gnome-settings-background wallpaper xfce4-backdrop
+preferences-color gnome-color-manager cs-color csd-color cinnamon-preferences-color
+preferences-desktop-accessibility accessibility-directory access ax-applet gnome-settings-accessibility-technologies orca mate-ax-applet csd-a11y-settings csd-a11y-keyboard cs-universal-access
+preferences-desktop-wallpaper background gnome-settings-background wallpaper xfce4-backdrop cs-backgrounds csd-background
 preferences-desktop-keyboard
-preferences-desktop-keyboard-shortcuts key_bindings ktouch klavaro gnome-settings-keybindings
-preferences-desktop-locale config-language locale
+preferences-desktop-keyboard-shortcuts key_bindings ktouch klavaro gnome-settings-keybindings csd-media-keys
+preferences-desktop-locale config-language locale cs-language cs-region
 preferences-desktop-remote-desktop gdm-xnest gnome-remote-desktop tsclient vinagre remmina krfb
-preferences-desktop-screensaver kscreensaver screensaver xscreensaver
-preferences-desktop-sound gnome-audio gnome-settings-sound gnome-sound-properties gnome-volume-control multimedia-volume-control preferences-desktop-multimedia preferences-sound xfce-sound xfce4-sound xfce4-mixer volume-knob multimedia knotify kcmsound gnome-mixer arts
-preferences-desktop-theme gnome-settings-theme style xfce-ui
-preferences-system-bluetooth bluetooth bluetooth-48 bluetoothradio blueman blueradio blueradio-48 bt-logo blueman-device
-preferences-system-firewall gufw gufw_menu ufw-frontends firestarter
-preferences-system-windows gnome-window-manager kcmkwm kwin xfwm4 window-manager mate-panel-window-list mate-panel-window-menu
+preferences-desktop-screensaver kscreensaver screensaver xscreensaver cs-screensaver csd-screensaver-proxy
+preferences-desktop-sound gnome-audio gnome-settings-sound gnome-sound-properties gnome-volume-control multimedia-volume-control preferences-desktop-multimedia preferences-sound xfce-sound xfce4-sound xfce4-mixer volume-knob multimedia knotify kcmsound gnome-mixer arts csd-sound
+preferences-desktop-theme gnome-settings-theme style xfce-ui cs-themes
+preferences-system-bluetooth bluetooth bluetooth-48 bluetoothradio blueman blueradio blueradio-48 bt-logo blueman-device cs-bluetooth
+preferences-system-firewall gufw gufw_menu ufw-frontends firestarter cs-firewall
+preferences-system-windows gnome-window-manager kcmkwm kwin xfwm4 window-manager mate-panel-window-list mate-panel-window-menu cs-windows
 qtassistant assistant assistant-qt4 qdbusviewer
 qtdesigner designer QtProject-designer designer-qt4 qt4logo
 qtlinguist linguist linguist-qt4
-qtcreator qtcreator_logo_32 qtassistant qtdesigner qtlinguist qdbusviewer-qt4
+qtcreator qtcreator_logo_32 qtassistant qtdesigner qtlinguist qdbusviewer-qt4    qtlinguist linguist linguist-qt4 qtdesigner designer QtProject-designer designer-qt4 qt4logo qtassistant assistant assistant-qt4 qdbusviewer
 radiotray
 rhythmbox gmusicbrowser gnome-music
 screenruler-icon screenruler
@@ -264,14 +264,14 @@ sound-juicer
 soundconverter oggconvert
 steam  steampowered
 stellarium
-stock_keyring badge-small keyring-manager password revelation seahorse seahorse-preferences activity-log-manager gksu dialog-password  preferences-system-privacy
+stock_keyring badge-small keyring-manager password revelation seahorse seahorse-preferences activity-log-manager gksu dialog-password preferences-system-privacy cs-privacy
 synapse
-synaptic gnome-app-install gnome-package system-installer system-software-install system-installer system-software-installer drakstats gdebi gdeb gnome-apt kentoo kpackage kynpatic package-manager-icon pirut porthole rpmdrake update-notifier yumex aptdaemon-download mx-packageinstaller
+synaptic gnome-app-install gnome-package system-installer system-software-install system-installer system-software-installer drakstats gdebi gdeb gnome-apt kentoo kpackage kynpatic package-manager-icon pirut porthole rpmdrake update-notifier yumex aptdaemon-download mx-packageinstaller cs-sources
 system-file-manager file-manager kfm nautilus redhat-filemanager xfce-filemanager caja Thunar thunar mate-panel-drawer sunflower org.gnome.Nautilus
 system-switch-java
 telepathy
 terminator
-time-admin config-date preferences-system-time clocks timer-applet xfce4-timer  orage_globaltime org.gnome.clocks mx-clocky
+time-admin config-date preferences-system-time clocks timer-applet xfce4-timer  orage_globaltime org.gnome.clocks mx-clocky cs-date-ti
 tomboy knotes xpad
 totem kaffeine parole org.gnome.Totem
 thunderbird mozilla-thunderbird thunderbird-icon
@@ -303,7 +303,7 @@ wine-winecfg winecfg
 wine-winetricks winetricks
 wireshark hi48-app-wireshark
 wordpress
-workspace-switcher gnome-panel-workspace-switcher xfce4-workspaces mate-panel-workspace-switcher
+workspace-switcher gnome-panel-workspace-switcher xfce4-workspaces mate-panel-workspace-switcher cs-workspaces
 WorldOfGoo
 Wunderlist wunderlist
 wxbanker gnucash-icon emblem-sales mate-invest-applet
@@ -332,3 +332,23 @@ maxthon maxthon-desktop
 boincmgr boinc
 2048 gnome-2048
 yandex-browser yandex-browser-beta
+gnome-todo org.gnome.Todo
+gnome-maps org.gnome.Maps
+pyrenamer gprename
+bitcoin bitcoin-128 bitcoin-qt
+clipgrab ClipGrab clipgrab-qt5
+eufloria eufloriahd
+fbreader FBReader
+fedorautils fedora-utils
+hamster hamster-applet hamster-indicator hamster-time-tracker
+handbrake-gtk hb-icon
+intellij-idea intellij_idea intellij-idea-ce intellij-idea-community intellij-idea-ultimate-edition intellij idea-ultimate idea
+keepass keepass2
+mame mameexecutor
+matlab matlab-desktop
+muse-sequencer muse muse_icon
+bleachbit csd-housekeeping
+cs-date-time csd-datetime cinnamon-preferences-system-time
+gnome-color-chooser cs-cat-appearance
+pocket goa-account-pocket
+mysqlworkbench mysql-workbench

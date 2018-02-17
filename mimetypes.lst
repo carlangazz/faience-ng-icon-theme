@@ -34,8 +34,8 @@ authors gnome-mime-text-x-authors gnome-mime-text-x-credits text-x-authors text-
 deb application-x-deb gnome-mime-application-x-deb
 empty gnome-fs-regular gtk-file text-x-preview
 encrypted application-pgp-encrypted
-extension openofficeorg3-extension applications-puzzles parole-extension
-font-x-generic font_bitmap font font_truetype font_type1 gnome-mime-application-x-font-afm gnome-mime-application-x-font-bdf gnome-mime-application-x-font-linux-psf gnome-mime-application-x-font-pcf gnome-mime-application-x-font-sunos-news gnome-mime-application-x-font-ttf gnome-mime-x-font-afm preferences-desktop-font fonts gnome-settings-font applications-fonts
+extension openofficeorg3-extension applications-puzzles parole-extension cs-extensions
+font-x-generic font_bitmap font font_truetype font_type1 gnome-mime-application-x-font-afm gnome-mime-application-x-font-bdf gnome-mime-application-x-font-linux-psf gnome-mime-application-x-font-pcf gnome-mime-application-x-font-sunos-news gnome-mime-application-x-font-ttf gnome-mime-x-font-afm preferences-desktop-font fonts gnome-settings-font applications-fonts cs-fonts
 image-bmp gnome-mime-image-bmp gnome-mime-image-x-portable-bitmap image-x-portable-bitmap image-x-win-bitmap
 image-gif gnome-mime-image-gif
 image-jpeg gnome-mime-image-jpeg image-jpeg2000 jpeg jpg

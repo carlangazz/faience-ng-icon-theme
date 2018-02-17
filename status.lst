@@ -29,10 +29,10 @@ dcpp-panel dcpp-32
 deadbeef-tray-icon deadbeef_tray_icon
 deluge-panel deluge-torrent-panel
 dialog-error error gtk-dialog-error messagebox_critical stock_dialog-error
-dialog-information dialog-info gtk-dialog-info info messagebox_info stock_dialog-info mate-panel-notification-area
+dialog-information dialog-info gtk-dialog-info info messagebox_info stock_dialog-info mate-panel-notification-area cs-details
 dialog-password gtk-dialog-authentication
 dialog-question gtk-dialog-question stock_dialog-question
-dialog-warning gtk-dialog-warning messagebox_warning stock_dialog-warning xfce4-notifyd important preferences-system-notifications gtk-caps-lock-warning mate-notification-properties
+dialog-warning gtk-dialog-warning messagebox_warning stock_dialog-warning xfce4-notifyd important preferences-system-notifications gtk-caps-lock-warning mate-notification-properties cs-notifications csd-print-notifications
 dropboxstatus-blank blank
 dropboxstatus-busy busy
 dropboxstatus-busy2 busy2

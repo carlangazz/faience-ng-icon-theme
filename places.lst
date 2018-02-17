@@ -17,12 +17,12 @@ folder-recent document-open-recent
 folder-remote network gnome-fs-blockdev gnome-fs-network gnome-fs-share folder-remote-ftp gnome-fs-ftp folder-remote-ssh gnome-fs-ssh folder-remote-nfs gnome-fs-nfs nfs network_fs gnome-fs-dav folder-remote-smb gnome-fs-smb samba gnome-mime-x-directory-smb-share user-share shares
 folder-saved-search application-x-gnome-saved-search
 network-server gnome-fs-server gnome-mime-x-directory-nfs-server gnome-mime-x-directory-smb-server redhat-network-server server gnome-network-properties
-network-workgroup gnome-mime-x-directory-smb-workgroup gtk-network network_local gnome-dev-network pyneighborhood_48x48 preferences-system-network xfce4-netload-plugin cmst mate-network-properties nm-device-wireless ndisgtk
+network-workgroup gnome-mime-x-directory-smb-workgroup gtk-network network_local gnome-dev-network pyneighborhood_48x48 preferences-system-network xfce4-netload-plugin cmst mate-network-properties nm-device-wireless ndisgtk cs-network
 user-bookmarks gnome-fs-bookmark stock_bookmark
-user-desktop desktop gnome-fs-desktop emblem-desktop
+user-desktop desktop gnome-fs-desktop emblem-desktop cs-desktop
 user-home folder-home folder_home gnome-fs-home
 user-trash emptytrash gnome-fs-trash-empty gnome-stock-trash trashcan_empty xfce-trash_empty
-start-here-gnome start-here
+start-here-gnome start-here org.gnome.ChromeGnomeShell
 start-here-gnome-symbolic start-here-symbolic
 start-here-xfce xfce4-whiskermenu xfce4-panel-menu
 distributor-logo-manjaro manjaro

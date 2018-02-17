@@ -95,8 +95,8 @@ media-seek-forward media-seek-backward-rtl gtk-media-rewind-rtl player_fwd stock
 media-seek-backward media-seek-forward-rtl gtk-media-forward-rtl gtk-media-forward-ltr gtk-media-rewind-ltr player_rew stock_media-rew
 media-skip-forward media-skip-backward-rtl gtk-media-next-ltr gtk-media-previous-rtl player_end stock_media-next
 media-skip-backward media-skip-forward-rtl gtk-media-next-rtl gtk-media-previous-ltr player_start stock_media-prev
-object-flip-horizontal gimp-flip-horizontal
-object-flip-vertical gimp-flip-vertical
+object-flip-horizontal gimp-flip-horizontal tool-mirror
+object-flip-vertical gimp-flip-vertical tool-flip
 object-rotate-left gimp-rotate-270
 object-rotate-right rotate gimp-rotate-90 gimp-rotate-180
 action-unavailable process-stop gtk-cancel gtk-stop stock_stop stop
@@ -139,14 +139,14 @@ object-hidden user-not-tracked
 draw-eraser gimp-tool-eraser
 dialog-align-and-distribute gimp-tool-align
 tool-tweak gimp-tool-warp
-image-crop gimp-tool-crop
+image-crop gimp-tool-crop tool-crop
 draw-path gimp-tool-path
 tool-measure gimp-tool-measure
 color-fill gimp-tool-bucket-fill
-paint-gradient-linear gimp-gradient-linear gimp-tool-blend
+paint-gradient-linear gimp-gradient-linear gimp-tool-blend tool-grayscale
 paint-gradient-radial gimp-gradient-radial
 dialog-layers gimp-layers
-stock_filters-invert gimp-invert
+stock_filters-invert gimp-invert tool-invert
 edit-undo-history gimp-undo-history
 grid-rectangular gimp-grid
 tool-pointer gimp-cursor
@@ -193,3 +193,11 @@ filter-nonvc filter-nonvc-24
 filter-modified filter-modified-24
 filter-ignored filter-ignored-24
 document-edit list-edit
+gimp-tool-brightness-contrast tool-adjust-contrast
+gimp-histogram histogram
+gimp-colormap map
+gimp-tool-color-balance tool-adjust-colors
+gimp-scale tool-resize
+gimp-tool-rotate tool-rotate
+gimp-tool-posterize tool-sharpen
+file-catalog file-library
