@@ -52,8 +52,6 @@ $output .= '<defs>
 			<feGaussianBlur stdDeviation="0.68880677"/>
 		</filter>';
 
-
-
   if ((string) $xml->path['fill'] === '#d40000') {
 	  $output .= '
 	<linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
@@ -90,6 +88,9 @@ $output .= '<defs>
   }
 
   $output .= '</defs>';
+
+
+$output .= '<g transform="translate(0,-4)">';
 
   $path = clone($xml->path);
   $path['id'] = 'base';
@@ -155,7 +156,7 @@ $output .= '<defs>
   $output .= '</g>';
 
 
-$output .= '</svg>';
+$output .= '</g></svg>';
 
 file_put_contents($file, $output);
 //
@@ -167,6 +168,6 @@ shell_exec("inkscape --file='$file' \
 }
 
 if (isset($_SERVER['argv'][2])) {
-  copy($file, $_SERVER['argv'][2] . '/' . basename($file));
+  copy($file, $_SERVER['argv'][2]); //. '/' . basename($file)
   unlink($file);
 }

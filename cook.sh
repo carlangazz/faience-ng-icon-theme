@@ -2,521 +2,94 @@
 
 readonly CURDIR="$(dirname $(readlink -f "$0"))"
 
-get_context() {
-	case $1 in
-		actions)
-			context=Actions
-			;;
-		animations)
-			context=Animations
-			;;
-		apps)
-			context=Applications
-			;;
-		categories)
-			context=Categories
-			;;
-		devices)
-			context=Devices
-			;;
-		emblems)
-			context=Emblems
-			;;
-		emotes)
-			context=Emotes
-			;;
-		mimetypes)
-			context=MimeTypes
-			;;
-		places)
-			context=Places
-			;;
-		status)
-			context=Status
-			;;
-		stock)
-			context=Stock
-			;;
-	esac
-	echo $context
+
+xorg_background() {
+	mv $HOME/.config/inkscape/preferences.xml $HOME/.config/inkscape/preferences.xml_
+	if command -v Xvfb &>/dev/null; then
+		Xvfb :1 -screen 0 640x480x24 -fbdir /var/tmp &
+		xorgpid="$!"
+		trap "kill $xorgpid && mv $HOME/.config/inkscape/preferences.xml_ $HOME/.config/inkscape/preferences.xml" EXIT
+		export DISPLAY=:1.0
+		:
+	else
+		echo "Xvfb is missing in your system"
+	fi
 }
 
-OUTSIZES="8 16 22 24 32 48 256" #256
+
+make_theme_index() {
+	local theme="$1"
+	local types="$2"
+	OUTDIR="${CURDIR}/DESTDIR/${theme}"
+	mkdir -p $OUTDIR
+	cp "${CURDIR}/themes/${theme}/index.theme" "${OUTDIR}/"
+	dirs=""
+
+	for size in ${OUTSIZES}; do
+		mkdir -p ${OUTDIR}/${size}x${size}/
+		for type in $types; do
+			[ -d ${CURDIR}/DESTDIR/Faience-ng/${type}/${size}x${size} ] || continue
+			find ${CURDIR}/DESTDIR/Faience-ng/${type}/${size}x${size}/ -type f -name "*.png" | while read line; do
+				filename="$(basename $line)"
+				[ -e ${OUTDIR}/${size}x${size}/${filename} ] && continue
+				ln -s ../../Faience-ng/${type}/${size}x${size}/${filename} ${OUTDIR}/${size}x${size}/${filename}
+			done
+			echo $theme $type $size
+
+			cat "${CURDIR}/symlinks.lst" | while read line; do
+				filename="${line%% *}.png"
+				#[ -e ${OUTDIR}/${size}x${size}/${filename} ] && continue
+
+				cd ${OUTDIR}/${size}x${size}
+
+				if [ -f "${CURDIR}/DESTDIR/Faience-ng/${type}/${size}x${size}/${filename}" ]; then
+					for lnk in ${line#* }; do
+						if [ ! -f ${CURDIR}/DESTDIR/${theme}/${size}x${size}/${lnk}.png ]; then
+							ln -s ../../Faience-ng/${type}/${size}x${size}/${filename} ${lnk}.png
+						fi
+					done
+				fi
+			done
+		done
+	done
+	ln -s ../Faience-ng/symbolic $OUTDIR
+
+	#for type in $types; do
+		cd $OUTDIR
+		for size in ${OUTSIZES}; do
+			d="${size}x${size}"
+			[ ! -d "${OUTDIR}/${d}" ] && continue
+			dirs+="${d},"
+			echo >> "${OUTDIR}/index.theme"
+			echo "[${d}]" >> "${OUTDIR}/index.theme"
+			#if [ "${size}" = 256 ]; then
+			#	echo "Size=256" >> "${OUTDIR}/index.theme"
+			#	echo "MinSize=8" >> "${OUTDIR}/index.theme"
+			#	echo "MaxSize=512" >> "${OUTDIR}/index.theme"
+			#	echo "Type=Scalable" >> "${OUTDIR}/index.theme"
+			#else
+				echo "Size=${size}" >> "${OUTDIR}/index.theme"
+				echo "Type=Fixed" >> "${OUTDIR}/index.theme"
+			#fi
+		done
+		d="symbolic"
+		dirs+="${d},"
+		echo >> "${OUTDIR}/index.theme"
+		echo "[${d}]" >> "${OUTDIR}/index.theme"
+		echo "Size=16" >> "${OUTDIR}/index.theme"
+		echo "MinSize=8" >> "${OUTDIR}/index.theme"
+		echo "MaxSize=512" >> "${OUTDIR}/index.theme"
+		echo "Type=Scalable" >> "${OUTDIR}/index.theme"
+	#done
+	sed -i "${OUTDIR}/index.theme" -e s#Directories=#Directories="${dirs}"#
+}
+
+
+
+OUTSIZES="8 16 22 24 32 48 256" #
 
 
 case $1 in
-	step1)
-		TYPES="actions apps categories devices mimetypes places status"
-		# Шаг первый: Преобразовываем symbolic в градиентные actions\status
-		# Преобразовываются только новые или измененные
-		# Запускаем в фоне
-		mv $HOME/.config/inkscape/preferences.xml $HOME/.config/inkscape/preferences.xml_
-		if command -v Xvfb &>/dev/null; then
-			Xvfb :1 -screen 0 640x480x24 -fbdir /var/tmp &
-			xorgpid="$!"
-			trap "kill $! && mv $HOME/.config/inkscape/preferences.xml_ $HOME/.config/inkscape/preferences.xml" EXIT
-			export DISPLAY=:1.0
-			:
-		else
-			echo "Xvfb is missing in your system"
-		fi
-		for theme in Faience-ng-Dark Faience-ng Faience-ng-Light; do
-			OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
-			for size in 16 24; do
-				for type in $TYPES; do
-					[ ! -d "${CURDIR}/scalable-up-to-${size}/${type}" ] && continue
-					#if [ "$type" = "places" ]; then
-						#files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | egrep "^start" | sort)
-					#else
-						files=$(find ${CURDIR}/scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | sort)
-					#fi
-					for file in $files; do
-						outfile="${OUTDIR}/${size}x${size}/${type}/$(basename ${file/-symbolic/})"
-						if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-							mkdir -p "${OUTDIR}/${size}x${size}/${type}"
-							echo "$outfile"
-							php -c $CURDIR/php.ini ./icon.php "$theme" "$file" "${OUTDIR}/${size}x${size}/${type}"
-						fi
-					done
-				done
-			done
-		done
-		# 96x96
-		theme=Faience-ng
-		size=96
-		OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
-		for type in $TYPES; do
-			[ ! -d "${CURDIR}/scalable-up-to-${size}/${type}" ] && continue
-			files=$(find ./scalable-up-to-${size}/${type} -name "*.svg" 2>/dev/null | sort)
-			for file in $files; do
-				outfile="${OUTDIR}/${size}x${size}/${type}/$(basename ${file/-symbolic/})"
-				if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-					mkdir -p "${OUTDIR}/${size}x${size}/${type}"
-					echo "$outfile"
-					php -c $CURDIR/php.ini ./big.php "$file" "${OUTDIR}/${size}x${size}/${type}"
-				fi
-			done
-		done
-
-		# Удаляем удаленные
-		for theme in Faience-ng Faience-ng-Light Faience-ng-Dark; do # Faience-ng-mono
-			#OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
-			for size in 16 24 96; do
-				if [ -d "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/" ]; then
-					cd "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/"
-					for file in $(find . -name "*.svg" 2>/dev/null | sort); do
-						f=${file/.svg/-symbolic.svg}
-						f=${f/-rtl-symbolic/-symbolic-rtl}
-						if [ ! -f "${CURDIR}/scalable-up-to-${size}/${f}" ]; then
-							echo "rm: ${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/${file}"
-							rm "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/${file}"
-						fi
-					done
-				fi
-			done
-		done
-		#kill $xorgpid
-	;;
-	step2)
-		# Преобразовываем градиентные svg в png
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light; do
-			INDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
-			OUTDIR="${CURDIR}/PREBUILD/png/symbolic/${theme}"
-			mkdir -p "${OUTDIR}"
-			for type in actions places status apps devices mimetypes categories; do
-				for size in ${OUTSIZES}; do
-					case "$size" in
-						16)
-							if [ -d "${INDIR}/${size}x${size}/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/${size}x${size}/${type}/*.svg; do
-									outfile="${OUTDIR}/${size}x${size}/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/${size}x${size}/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-						22)
-							if [ -d "${INDIR}/24x24/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/24x24/${type}/*.svg; do
-									outfile="${OUTDIR}/22x22/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/24x24/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-						24)
-							if [ -d "${INDIR}/${size}x${size}/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/${size}x${size}/${type}/*.svg; do
-									outfile="${OUTDIR}/${size}x${size}/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --export-area=-1:-1:23:23 --file="${file}" --export-png="$outfile"
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/${size}x${size}/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-						32|48|64|96|128|256|512)
-							if [ -d "${INDIR}/96x96/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/96x96/${type}/*.svg; do
-									outfile="${OUTDIR}/${size}x${size}/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/96x96/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-					esac
-				done
-			done
-		done
-	;;
-	step3)
-		#Рендерим иконки, нарисованные вручную
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green; do # Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green
-			INDIR="${CURDIR}/${theme}"
-			OUTDIR="${CURDIR}/PREBUILD/png/drawed/$theme"
-			mkdir -p "${OUTDIR}"
-			for type in actions apps categories devices emblems mimetypes places status; do
-				for size in ${OUTSIZES}; do
-					case "$size" in
-						16)
-							if [ -d "${INDIR}/${size}x${size}/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/${size}x${size}/${type}/*.svg; do
-									[ ! -f "$file" ] && continue
-									outfile="${OUTDIR}/${size}x${size}/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/${size}x${size}/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-						22)
-							if [ -d "${INDIR}/24x24/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/24x24/${type}/*.svg; do
-									[ ! -f "$file" ] && continue
-									outfile="${OUTDIR}/22x22/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										rsize=$(grep -Po -m1 'width="[\d]+"' "${file}" | cut -d'"' -f2)
-										if [ "$rsize" = "22" ]; then
-											inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
-										elif [ "$rsize" = "24" ]; then
-											inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --export-area=1:1:23:23 --file="${file}" --export-png="$outfile"
-										else
-											echo "ERROR_________________________________"
-											exit 1
-										fi
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/24x24/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-						24)
-							if [ -d "${INDIR}/${size}x${size}/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/${size}x${size}/${type}/*.svg; do
-									[ ! -f "$file" ] && continue
-									outfile="${OUTDIR}/${size}x${size}/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										rsize=$(grep -Po -m1 'width="[\d]+"' "${file}" | cut -d'"' -f2)
-										if [ "$rsize" = "22" ]; then
-											inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --export-area=-1:-1:23:23 --file="${file}" --export-png="$outfile"
-										elif [ "$rsize" = "24" ]; then
-											inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
-										else
-											echo "ERROR_________________________________"
-											exit 1
-										fi
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/${size}x${size}/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-						32|48|64|96|128|256|512)
-							if [ -d "${INDIR}/96x96/${type}/" ]; then
-								mkdir -p ${OUTDIR}/${size}x${size}/${type}
-								for file in ${INDIR}/96x96/${type}/*.svg; do
-									outfile="${OUTDIR}/${size}x${size}/${type}/$(basename -s .svg "${file}").png"
-									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
-										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
-									fi
-								done
-							fi
-							# Удаляем удаленные
-							if [ -d "${OUTDIR}/${size}x${size}/${type}" ]; then
-								cd "${OUTDIR}/${size}x${size}/${type}"
-								for file in $(find . -name "*.png" 2>/dev/null | sort); do
-									f=${file/.png/.svg}
-									if [ ! -f "${INDIR}/96x96/${type}/${f}" ]; then
-										echo "rm: ${OUTDIR}/${size}x${size}/${type}/${file}"
-										rm "${OUTDIR}/${size}x${size}/${type}/${file}"
-									fi
-								done
-							fi
-						;;
-					esac
-				done
-			done
-		done
-	;;
-	step4)
-		rm -rf "${CURDIR}/DESTDIR"
-		# Слияние подготовленных иконок в DESTDIR
-		for theme in Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green; do
-			OUTDIR="${CURDIR}/DESTDIR/${theme}"
-			mkdir -p "${OUTDIR}"
-			if [ -d "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}" ]; then
-				#cp -aT "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}" "${OUTDIR}"
-				mkdir -p "${OUTDIR}/16x16/places"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				cp -a "${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/mimetypes" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				for f in $(find ${CURDIR}/PREBUILD/png/symbolic/${theme/-mono/}/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
-					cp -a "$f" "${OUTDIR}/16x16/places/"
-				done
-			fi
-
-			case $theme in
-				*Blue|*Green)
-					lns=${theme/-Blue/}
-					lns=${lns/-Green/}
-					mkdir -p "${CURDIR}/DESTDIR/${theme}/16x16"
-					ln -s "../../${lns}/16x16/places" "${CURDIR}/DESTDIR/${theme}/16x16/places"
-				;;
-			esac
-		done
-
-		for theme in Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green; do
-			OUTDIR="${CURDIR}/DESTDIR/${theme}"
-			mkdir -p "${OUTDIR}"
-			if [ -d "${CURDIR}/PREBUILD/png/symbolic/${theme}" ]; then
-				cp -aT "${CURDIR}/PREBUILD/png/symbolic/${theme}" "${OUTDIR}"
-				rm -rf "${OUTDIR}/16x16/apps" "${OUTDIR}/16x16/devices" "${OUTDIR}/16x16/categories"
-				if [ -d "${CURDIR}/DESTDIR/${theme}/16x16/places" ]; then
-					for f in $(find ${CURDIR}/DESTDIR/${theme}/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
-						rm -f "$f"
-					done
-				fi
-			fi
-
-			#if [ "$theme" == "Faience-ng-mono" ]; then
-				#mkdir -p "${OUTDIR}/16x16/places";
-				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/apps" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/devices" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/categories" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				#cp -a "${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/mimetypes" "${CURDIR}/DESTDIR/${theme}/16x16/"
-				#for f in $(find ${CURDIR}/PREBUILD/png/symbolic/Faience-ng/16x16/places -name "*.png" 2>/dev/null | egrep -v "start"); do
-				#	cp -a "$f" "${OUTDIR}/16x16/places/"
-				#done
-			#fi
-
-			if [ -d "${CURDIR}/PREBUILD/png/drawed/${theme}" ]; then
-				cp -aT "${CURDIR}/PREBUILD/png/drawed/${theme}" "${OUTDIR}"
-			fi
-
-			# Создаем симлинки
-			for type in actions apps categories devices emblems mimetypes places status; do #animations
-				while read line; do
-					for lnk in ${line#* }; do
-						dirnm=$(echo ${lnk} | cut -s -d: -f1)
-						if [ "$dirnm" ]; then
-							trgt="../${type}/"
-						else
-							trgt=
-							dirnm="${type}"
-						fi
-						ext=png
-						for size in ${OUTSIZES}; do
-							[ ! -d "${OUTDIR}/${size}x${size}/${type}" ] && continue
-							#[ ! -d "${OUTDIR}/${size}x${size}/${dirnm}" ] && mkdir -p "${OUTDIR}/${size}x${size}/${dirnm}"
-							cd "${OUTDIR}/${size}x${size}/${type}"
-							if [ -e "${line%% *}.${ext}" ]; then
-								[ ! -e "${OUTDIR}/${size}x${size}/${dirnm}/${lnk#*:}.${ext}" ] && ln -s "${trgt}${line%% *}.${ext}" "${OUTDIR}/${size}x${size}/${dirnm}/${lnk#*:}.${ext}"
-							else
-								if [ -e "${CURDIR}/DESTDIR/Faience-ng/${size}x${size}/${dirnm}/${lnk#*:}.${ext}" -a ! -e "${OUTDIR}/${size}x${size}/${dirnm}/${lnk#*:}.${ext}" ]; then
-									ln -s "../../../Faience-ng/${size}x${size}/${dirnm}/${lnk#*:}.${ext}" "${OUTDIR}/${size}x${size}/${dirnm}/${lnk#*:}.${ext}"
-								else
-									echo "WARNING: '${line%% *}.${ext}' not found. Skiping"
-								fi
-							fi
-						done
-					done
-				done < "${CURDIR}/${type}.lst"
-			done
-		done
-
-		# Здесь будем копировать symbolic
-		mkdir -p "${CURDIR}/DESTDIR/Faience-ng/symbolic"
-		cd "${CURDIR}/scalable-up-to-16/"
-		while read file; do
-			if [ ! -f "${file%% *}" ]; then
-				echo "Missing: ${file%% *}"
-			else
-				cp --parents "${file%% *}" "${CURDIR}/DESTDIR/Faience-ng/symbolic/"
-				for f in ${file#* }; do
-					ln -s "../${file%% *}" "${CURDIR}/DESTDIR/Faience-ng/symbolic/${f}"
-				done
-			fi
-		done < "${CURDIR}/scalable.lst"
-		cd "${CURDIR}"
-
-		# Делаем симлинки для остальных тем
-		for type in actions apps categories devices emblems mimetypes places status; do #animations
-			for size in ${OUTSIZES}; do #scalable
-				if [ -d "${CURDIR}/DESTDIR/Faience-ng/${size}x${size}/${type}" ]; then
-					for file in "${CURDIR}/DESTDIR/Faience-ng/${size}x${size}/${type}"/*.png; do
-						b=$(basename $file)
-						if [ ! -L "$file" ]; then
-							for theme in Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green; do # Faience-ng-Dark-Blue Faience-ng-Dark-Green
-								#mkdir -p "${CURDIR}/DESTDIR/${theme}/${size}x${size}/${type}/"
-								outfile="${CURDIR}/DESTDIR/${theme}/${size}x${size}/${type}/${b}"
-								if [ ! -e "${outfile}" ]; then
-									ln -s "../../../Faience-ng/${size}x${size}/${type}/${b}" "${outfile}"
-								fi
-							done
-						fi
-					done
-				fi
-			done
-		done
-		# Делаем симлинки
-		for theme in Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green; do # Faience-ng-Blue Faience-ng-Green Faience-ng-Dark Faience-ng-Light
-			inherits=$(egrep "^Inherits=" "${CURDIR}/${theme}/index.theme" | cut -d= -f2)
-			for size in ${OUTSIZES}; do
-				mkdir -p "${CURDIR}/DESTDIR/${theme}/${size}x${size}/"
-				for type in actions apps categories devices emblems mimetypes places status; do
-					for inh in ${inherits//,/ }; do
-						outfile="${CURDIR}/DESTDIR/${theme}/${size}x${size}/${type}"
-						if [ -d "${CURDIR}/DESTDIR/${inh}/${size}x${size}/${type}" -a ! -e "${outfile}" ]; then
-							ln -s "../../${inh}/${size}x${size}/${type}" "${outfile}"
-						fi
-					done
-				done
-			done
-			ln -s "../Faience-ng/symbolic" "${CURDIR}/DESTDIR/${theme}/symbolic"
-		done
-
-		for theme in Faience-ng Faience-ng-Dark Faience-ng-Light Faience-ng-Blue Faience-ng-Green Faience-ng-Light-Blue Faience-ng-Light-Green Faience-ng-Dark-Blue Faience-ng-Dark-Green Faience-ng-mono Faience-ng-mono-Light Faience-ng-mono-Dark Faience-ng-mono-Blue Faience-ng-mono-Green Faience-ng-mono-Dark-Blue Faience-ng-mono-Dark-Green; do
-
-			OUTDIR="${CURDIR}/DESTDIR/${theme}"
-
-			cp "${CURDIR}/${theme}/index.theme" "${OUTDIR}/"
-			dirs=""
-			for size in ${OUTSIZES} symbolic; do
-				for type in actions apps categories devices emblems mimetypes places status stock; do
-					#mkdir -p "${OUTDIR}/${size}x${size}/${type}"
-					if [ "$size" = "symbolic" ]; then
-						d="symbolic"
-					else
-						d="${size}x${size}"
-					fi
-					[ ! -d "${OUTDIR}/${d}/${type}" ] && continue
-					dirs+="${d}/${type},"
-					echo >> "${OUTDIR}/index.theme"
-					echo "[${d}/${type}]" >> "${OUTDIR}/index.theme"
-					echo "Context=$(get_context ${type})" >> "${OUTDIR}/index.theme"
-					if [ "${size}" = "symbolic" ]; then
-						echo "Size=16" >> "${OUTDIR}/index.theme"
-						echo "MinSize=8" >> "${OUTDIR}/index.theme"
-						echo "MaxSize=512" >> "${OUTDIR}/index.theme"
-						echo "Type=Scalable" >> "${OUTDIR}/index.theme"
-					#elif [ "${size}" = 256 ]; then
-						#echo "Size=256" >> "${OUTDIR}/index.theme"
-						#echo "MinSize=8" >> "${OUTDIR}/index.theme"
-						#echo "MaxSize=512" >> "${OUTDIR}/index.theme"
-						#echo "Type=Scalable" >> "${OUTDIR}/index.theme"
-					else
-						echo "Size=${size}" >> "${OUTDIR}/index.theme"
-						echo "Type=Fixed" >> "${OUTDIR}/index.theme"
-					fi
-				done
-			done
-			sed -i "${OUTDIR}/index.theme" -e s#Directories=#Directories="${dirs}"#
-
-		done
-	;;
 	check-scalable)
 		mkdir -p "${CURDIR}/DESTDIR/Faience-ng/symbolic"
 		cd "${CURDIR}/scalable-up-to-16/"
@@ -541,8 +114,9 @@ case $1 in
 			ln -s "$d"
 			gtk-update-icon-cache -fi $d/
 		done
+        gsettings set org.gnome.desktop.interface icon-theme Faience-ng-Mono
 		if command -v xfconf-query &>/dev/null; then
-			xfconf-query -c xsettings -p /Net/IconThemeName -s Faience-ng-mono
+			xfconf-query -c xsettings -p /Net/IconThemeName -s Faience-ng-Mono
 			xfconf-query -c xsettings -p /Gtk/IconSizes -s "panel-menu=24,24:panel=24,24:gtk-button=16,16:gtk-large-toolbar=24,24"
 		fi
 	;;
@@ -571,6 +145,373 @@ case $1 in
 		sed -e 's|Icon=.*|Icon=hp_logo|' -i /usr/share/applications/hplip.desktop
 		sed -e 's|Icon=.*|Icon=guvcview|' -i /usr/share/applications/guvcview.desktop
 		sed -e 's|Icon=.*|Icon=gcolor2|' -i /usr/share/applications/gcolor2.desktop
+	;;
+	step1)
+		# Шаг первый: Преобразовываем symbolic в градиентные actions\status
+		# Преобразовываются только новые или измененные
+		# Запускаем в фоне
+		xorg_background
+
+		for theme in dark light; do
+			OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
+			for size in 16 24; do
+				[ ! -d "${CURDIR}/scalable-up-to-${size}/" ] && continue
+				files=$(find ${CURDIR}/scalable-up-to-${size} -name "*.svg" 2>/dev/null | sort)
+				for file in $files; do
+					outfile="${OUTDIR}/${size}x${size}/$(basename ${file})"
+					outfile=${outfile/-symbolic-rtl.svg/-rtl.svg}
+					outfile=${outfile/-symbolic.svg/.svg}
+					if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+						mkdir -p "${OUTDIR}/${size}x${size}"
+						echo "$outfile"
+						php -c $CURDIR/php.ini ./icon.php "$theme" "$file" "$outfile"
+					fi
+				done
+			done
+		done
+		# 96x96
+		theme=light
+		size=96
+		OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
+		[ ! -d "${CURDIR}/scalable-up-to-${size}" ] && continue
+		files=$(find ./scalable-up-to-${size} -name "*.svg" 2>/dev/null | sort)
+		for file in $files; do
+			outfile="${OUTDIR}/${size}x${size}/$(basename ${file})"
+			outfile=${outfile/-symbolic-rtl.svg/-rtl.svg}
+			outfile=${outfile/-symbolic.svg/.svg}
+			if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+				mkdir -p "${OUTDIR}/${size}x${size}"
+				echo "$outfile"
+				php -c $CURDIR/php.ini ./big.php "$file" "$outfile"
+			fi
+		done
+
+		# Удаляем удаленные
+		for theme in dark light; do
+			#OUTDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
+			for size in 16 24 96; do
+				if [ -d "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/" ]; then
+					cd "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/"
+					for file in $(find . -name "*.svg" 2>/dev/null | sort); do
+						f=${file/.svg/-symbolic.svg}
+						f=${f/-rtl-symbolic.svg/-symbolic-rtl.svg}
+						if [ ! -f "${CURDIR}/scalable-up-to-${size}/${f}" ]; then
+							echo "$f"
+							echo "rm: ${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/${file}"
+							rm "${CURDIR}/PREBUILD/symbolic/${theme}/${size}x${size}/${file}"
+						fi
+					done
+				fi
+			done
+		done
+	;;
+	step2)
+		# Преобразовываем градиентные svg в png
+		for theme in dark light; do
+			INDIR="${CURDIR}/PREBUILD/symbolic/${theme}"
+			OUTDIR="${CURDIR}/PREBUILD/png/symbolic/${theme}"
+			mkdir -p "${OUTDIR}"
+			for size in ${OUTSIZES}; do
+				case "$size" in
+					16)
+						if [ -d "${INDIR}/${size}x${size}/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}/
+							for file in ${INDIR}/${size}x${size}/*.svg; do
+								outfile="${OUTDIR}/${size}x${size}/$(basename -s .svg "${file}").png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+								fi
+							done
+						fi
+						# Удаляем удаленные
+						if [ -d "${OUTDIR}/${size}x${size}" ]; then
+							cd "${OUTDIR}/${size}x${size}"
+							for file in $(find . -name "*.png" 2>/dev/null | sort); do
+								f=${file/.png/.svg}
+								if [ ! -f "${INDIR}/${size}x${size}/${f}" ]; then
+									echo "rm: ${OUTDIR}/${size}x${size}/${file}"
+									rm "${OUTDIR}/${size}x${size}/${file}"
+								fi
+							done
+						fi
+					;;
+					22)
+						if [ -d "${INDIR}/24x24/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/24x24/*.svg; do
+								outfile="${OUTDIR}/22x22/$(basename -s .svg "${file}").png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+								fi
+							done
+						fi
+						# Удаляем удаленные
+						if [ -d "${OUTDIR}/${size}x${size}" ]; then
+							cd "${OUTDIR}/${size}x${size}"
+							for file in $(find . -name "*.png" 2>/dev/null | sort); do
+								f=${file/.png/.svg}
+								if [ ! -f "${INDIR}/24x24/${f}" ]; then
+									echo "rm: ${OUTDIR}/${size}x${size}/${file}"
+									rm "${OUTDIR}/${size}x${size}/${file}"
+								fi
+							done
+						fi
+					;;
+					24)
+						if [ -d "${INDIR}/${size}x${size}/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/${size}x${size}/*.svg; do
+								outfile="${OUTDIR}/${size}x${size}/$(basename -s .svg "${file}").png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --export-area=-1:-1:23:23 --file="${file}" --export-png="$outfile"
+								fi
+							done
+						fi
+						# Удаляем удаленные
+						if [ -d "${OUTDIR}/${size}x${size}" ]; then
+							cd "${OUTDIR}/${size}x${size}"
+							for file in $(find . -name "*.png" 2>/dev/null | sort); do
+								f=${file/.png/.svg}
+								if [ ! -f "${INDIR}/${size}x${size}/${f}" ]; then
+									echo "rm: ${OUTDIR}/${size}x${size}/${file}"
+									rm "${OUTDIR}/${size}x${size}/${file}"
+								fi
+							done
+						fi
+					;;
+					32|48|64|96|128|256|512)
+						if [ -d "${INDIR}/96x96/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/96x96/*.svg; do
+								outfile="${OUTDIR}/${size}x${size}/$(basename -s .svg "${file}").png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+								fi
+							done
+						fi
+						# Удаляем удаленные
+						if [ -d "${OUTDIR}/${size}x${size}" ]; then
+							cd "${OUTDIR}/${size}x${size}"
+							for file in $(find . -name "*.png" 2>/dev/null | sort); do
+								f=${file/.png/.svg}
+								if [ ! -f "${INDIR}/96x96/${f}" ]; then
+									echo "rm: ${OUTDIR}/${size}x${size}/${file}"
+									rm "${OUTDIR}/${size}x${size}/${file}"
+								fi
+							done
+						fi
+					;;
+				esac
+			done
+		done
+	;;
+	step3)
+		#Рендерим иконки, нарисованные вручную
+		for theme in dark light folders-blue folders-green folders-default pool; do
+			INDIR="${CURDIR}/SRC/${theme}"
+			OUTDIR="${CURDIR}/PREBUILD/png/drawed/$theme"
+			mkdir -p "${OUTDIR}"
+			for size in ${OUTSIZES}; do
+				case "$size" in
+					16)
+						if [ -d "${INDIR}/${size}x${size}/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/${size}x${size}/*.svg; do
+								[ ! -f "$file" ] && continue
+								outfile="${OUTDIR}/${size}x${size}/$(basename -s .svg "${file}").png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+								fi
+							done
+						fi
+					;;
+					22)
+						if [ -d "${INDIR}/24x24/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/24x24/*.svg; do
+								[ ! -f "$file" ] && continue
+								outfile="${OUTDIR}/22x22/$(basename -s .svg "${file}").png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									rsize=$(grep -Po -m1 'width="[\d]+"' "${file}" | cut -d'"' -f2)
+									if [ "$rsize" = "22" ]; then
+										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+									elif [ "$rsize" = "24" ]; then
+										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --export-area=1:1:23:23 --file="${file}" --export-png="$outfile"
+									else
+										echo "ERROR_________________________________"
+										exit 1
+									fi
+								fi
+							done
+						fi
+					;;
+					24)
+						if [ -d "${INDIR}/${size}x${size}/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/${size}x${size}/*.svg; do
+								[ ! -f "$file" ] && continue
+								outfile="${OUTDIR}/${size}x${size}/$(basename -s .svg "${file}").png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									rsize=$(grep -Po -m1 'width="[\d]+"' "${file}" | cut -d'"' -f2)
+									if [ "$rsize" = "22" ]; then
+										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --export-area=-1:-1:23:23 --file="${file}" --export-png="$outfile"
+									elif [ "$rsize" = "24" ]; then
+										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+									else
+										echo "ERROR_________________________________"
+										exit 1
+									fi
+								fi
+							done
+						fi
+					;;
+					32|48|64|96|128|256|512)
+						if [ -d "${INDIR}/96x96/" ]; then
+							mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/96x96/*.svg; do
+								filename=$(basename -s .svg "${file}")
+								outfile="${OUTDIR}/${size}x${size}/${filename}.png"
+								if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+									inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+								fi
+							done
+						fi
+						# Удаляем удаленные
+						if [ -d "${OUTDIR}/${size}x${size}" ]; then
+							cd "${OUTDIR}/${size}x${size}"
+							for file in $(find . -name "*.png" 2>/dev/null | sort); do
+								f=${file/.png/.svg}
+								if [ ! -f "${INDIR}/96x96/${f}" ]; then
+									echo "rm: ${OUTDIR}/${size}x${size}/${file}"
+									rm "${OUTDIR}/${size}x${size}/${file}"
+								fi
+							done
+						fi
+					;;
+				esac
+
+				# Рисуем которые есть в 96, но нет в $size
+				if [ "${theme}" = "pool" ]; then
+				case "$size" in
+					16|22|24)
+						if [ -d "${OUTDIR}/${size}x${size}" -a -d "${INDIR}/96x96/" ]; then
+							#mkdir -p ${OUTDIR}/${size}x${size}
+							for file in ${INDIR}/96x96/*.svg; do
+								filename=$(basename -s .svg "${file}")
+								outfile="${OUTDIR}/${size}x${size}/${filename}.png"
+								if [ ! -f "${CURDIR}/PREBUILD/png/symbolic/light/24x24/${filename}.png" ]; then
+									if [ ! -f "$outfile" ] || [[ "$(stat -c %Y $outfile)" < "$(stat -c %Y $file)" ]]; then
+										inkscape -z -d 96 -y 0.0 -w ${size} -h ${size} --file="${file}" --export-png="$outfile"
+									fi
+								fi
+							done
+						fi
+						# Удаляем удаленные
+						if [ -d "${OUTDIR}/${size}x${size}" ]; then
+							cd "${OUTDIR}/${size}x${size}"
+							for file in $(find . -name "*.png" 2>/dev/null | sort); do
+								f=${file/.png/.svg}
+								if [ ! -f "${INDIR}/96x96/${f}" -a ! -f "${INDIR}/${size}x${size}/${f}" ]; then
+									echo "rm: ${OUTDIR}/${size}x${size}/${file}"
+									rm "${OUTDIR}/${size}x${size}/${file}"
+								fi
+							done
+						fi
+					;;
+				esac
+				fi
+			done
+		done
+	;;
+	step4)
+		rm -rf "${CURDIR}/DESTDIR"
+		OUTDIR="${CURDIR}/DESTDIR/Faience-ng"
+		mkdir -p "${OUTDIR}"
+		for theme in pool folders-default folders-blue folders-green light dark; do
+			dir="${CURDIR}/PREBUILD/png/drawed/${theme}"
+			if [ -d ${dir} ]; then
+				cp -r "${CURDIR}/PREBUILD/png/drawed/${theme}" "${OUTDIR}/"
+			fi
+		done
+
+		for theme in light dark; do
+			dir="${CURDIR}/PREBUILD/png/symbolic/${theme}"
+			if [ -d ${dir} ]; then
+				cp -r "${CURDIR}/PREBUILD/png/symbolic/${theme}" "${OUTDIR}/"
+			fi
+		done
+
+		# Здесь будем копировать symbolic
+		mkdir -p "${CURDIR}/DESTDIR/Faience-ng/symbolic"
+		cd "${CURDIR}/scalable-up-to-16/"
+		while read file; do
+			if [ ! -f "${file%% *}" ]; then
+				echo "Missing: ${file%% *}"
+			else
+				cp --parents "${file%% *}" "${CURDIR}/DESTDIR/Faience-ng/symbolic/"
+				for f in ${file#* }; do
+					if [ ! -f "${CURDIR}/DESTDIR/Faience-ng/symbolic/${f}" ]; then
+						ln -s "${file%% *}" "${CURDIR}/DESTDIR/Faience-ng/symbolic/${f}"
+					fi
+				done
+			fi
+		done < "${CURDIR}/scalable.lst"
+		cd "${CURDIR}"
+
+
+		cp "${CURDIR}/themes/Faience-ng/index.theme" "${CURDIR}/DESTDIR/Faience-ng/"
+
+		make_theme_index "Faience-ng-Default" "folders-default pool light"
+		make_theme_index "Faience-ng-Dark" "folders-default pool dark light"
+		make_theme_index "Faience-ng-Blue" "folders-blue pool light"
+		make_theme_index "Faience-ng-Green" "folders-green pool light"
+		make_theme_index "Faience-ng-Dark-Blue" "folders-blue pool dark light"
+		make_theme_index "Faience-ng-Dark-Green" "folders-green pool dark light"
+		make_theme_index "Faience-ng-Mono" "light pool folders-default"
+		make_theme_index "Faience-ng-Mono-Dark" "dark light pool folders-default"
+		make_theme_index "Faience-ng-Mono-Blue" "light pool folders-blue"
+		make_theme_index "Faience-ng-Mono-Green" "light pool folders-green"
+		make_theme_index "Faience-ng-Mono-Dark-Blue" "dark light pool folders-blue"
+		make_theme_index "Faience-ng-Mono-Dark-Green" "dark light pool folders-green"
+
+
+	;;
+	to96)
+		xorg_background
+
+		mkdir -p ${CURDIR}/scalable-up-to-32
+
+		for i in avatar-default gtk-info indicator-messages-new indicator-messages \
+			locked lock mail-forward mail-mark-important mail-message-new mail-reply-all \
+			mail-reply-sender network-offline network-transmit-receive new-messages-red \
+			package-install package-remove package-upgrade system-lock-screen system-reboot \
+			system-restart-panel system-shutdown-panel; do
+				rm ${CURDIR}/scalable-up-to-96/${i}-symbolic.svg
+		done
+
+		for i in display-brightness changes-prevent changes-allow system-restart network-wired network-wired-disconnected; do
+			echo ${i}
+			php -c $CURDIR/php.ini ./to96.php "${CURDIR}/scalable-up-to-16/${i}-symbolic.svg" "${CURDIR}/scalable-up-to-32/${i}-symbolic.svg"
+		done
+
+		for f in ${CURDIR}/scalable-up-to-96/*.svg; do
+			file=$(basename $f .svg)
+			if [ ! -f ${CURDIR}/scalable-up-to-32/${file}.svg -a -f ${CURDIR}/scalable-up-to-16/${file}.svg -a ! -f ${CURDIR}/SRC/pool/96x96/${file/-symbolic/}.svg ]; then
+				echo $file
+				php -c $CURDIR/php.ini ./to96.php "${CURDIR}/scalable-up-to-16/${file}.svg" "${CURDIR}/scalable-up-to-32/${file}.svg"
+			else
+				echo "$file"
+			fi
+		done
+
+		exit
+
+		for file in $(cat ${CURDIR}/to96.lst); do
+			if [ ! -f ${CURDIR}/scalable-up-to-32/${file}.svg -a -f ${CURDIR}/scalable-up-to-16/${file}.svg -a ! -f ${CURDIR}/SRC/pool/96x96/${file/-symbolic/}.svg ]; then
+				echo $file
+				php -c $CURDIR/php.ini ./to96.php "${CURDIR}/scalable-up-to-16/${file}.svg" "${CURDIR}/scalable-up-to-32/${file}.svg"
+			fi
+		done
 	;;
 	*)
 		echo "ERROR: unknown command"

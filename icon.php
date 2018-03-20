@@ -2,9 +2,9 @@
 
 define('CURDIR', __DIR__);
 
-if ($_SERVER['argv'][1] == 'Faience-ng') {
+if ($_SERVER['argv'][1] == 'light') {
   $type = 3;
-} elseif ($_SERVER['argv'][1] == 'Faience-ng-Dark') {
+} elseif ($_SERVER['argv'][1] == 'dark') {
   $type = 2;
 } else {
   $type = 1;
@@ -94,8 +94,8 @@ if ($type === 1) {
 	$sizes2[4] = floatval($sizes2[4]);
 	  $output .= '
 	<linearGradient id="b" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes2[2] . '" x2="8" y2="' . ($sizes2[2] + $sizes2[4]) . '">
-	  <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#ad0707' : '#b0e929' ) . '" offset="0"/>
-	  <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#f75535' : '#7ea424' ) . '" offset="1"/>
+    <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#c81700' : '#31cb38' ) . '" offset="0"/>
+    <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#f3604d' : '#0aad09' ) . '" offset="1"/>
 	</linearGradient>
   ';
   }
@@ -130,12 +130,12 @@ if ($type === 1) {
 
   if (count($xml->path) === 2) {
 	$path = clone($xml->path[1]);
-	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000' || (string) $path['fill'] === '#008000') {
-		$path['fill'] = 'url(#b)';
-	} else {
-		$path['fill'] = '#000';
-  		$path['opacity'] = '.30';
-	}
+  	if ((string) $path['fill'] === '#d40000' || (string) $path['fill'] === '#ff9000' || (string) $path['fill'] === '#008000') {
+  		$path['fill'] = 'url(#b)';
+  	} else {
+  		  $path['fill'] = '#000';
+    		$path['opacity'] = '.30';
+  	}
 	$output .= $path->asXML();
   }
 
@@ -181,6 +181,13 @@ if ($type === 1) {
     <stop stop-color="#7ea424" offset="1"/>
   </linearGradient>
   ';
+  } elseif ((string) $xml->path['fill'] === '#ff9000') {
+    $output .= '
+  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
+    <stop stop-color="#f7c15a" offset="0"/>
+    <stop stop-color="#df880b" offset="1"/>
+  </linearGradient>
+  ';
   } else {
 	$output .= '
 	  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes[2] . '" x2="8" y2="' . ($sizes[2] + $sizes[4]) . '">
@@ -196,8 +203,8 @@ if ($type === 1) {
 	$sizes2[4] = floatval($sizes2[4]);
 	$output .= '
 	<linearGradient id="b" gradientUnits="userSpaceOnUse" x1="8" y1="' . $sizes2[2] . '" x2="8" y2="' . ($sizes2[2] + $sizes2[4]) . '">
-	  <stop stop-color="#f3604d" offset="0"/>
-	  <stop stop-color="#c81700" offset="1"/>
+    <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#f3604d' : '#31cb38' ) . '" offset="0"/>
+    <stop stop-color="' . ((string) $xml->path[1]['fill'] === '#d40000' ? '#c81700' : '#0aad09' ) . '" offset="1"/>
 	</linearGradient>
    ';
   }
@@ -206,7 +213,7 @@ if ($type === 1) {
   $output .= '<g id="Bevel">';
   $path = clone($xml->path);
   $path['opacity'] = '.25';
-  ((string) $xml->path['fill'] !== '#bebebe') && $path['opacity'] = '.10';
+  //((string) $xml->path['fill'] !== '#bebebe') && $path['opacity'] = '.10';
   $path['fill'] = '#000';
   $path['inkscape:radius'] = '1';
   $path['inkscape:original'] = $path['d'];
@@ -216,7 +223,7 @@ if ($type === 1) {
 
   $path = clone($xml->path);
   $path['opacity'] = '.25';
-  ((string) $xml->path['fill'] !== '#bebebe') && $path['opacity'] = '.10';
+  //((string) $xml->path['fill'] !== '#bebebe') && $path['opacity'] = '.10';
   $path['fill'] = '#000';
   $output .= $path->asXML();
   $output .= '</g>';
@@ -413,9 +420,11 @@ shell_exec("inkscape --file='$file' --select=Bevel --verb=SelectionUnGroup --ver
  --select=BevelHighlight --verb=SelectionUnGroup --verb=SelectionDiff --verb=EditDeselect \
  --select=BevelInner --verb=SelectionUnGroup --verb=SelectionDiff --verb=EditDeselect \
  --verb=FileSave --verb=FileQuit");
+shell_exec("inkscape --file='$file' --export-plain-svg='$file'");
+
 }
 
 if (isset($_SERVER['argv'][3])) {
-  copy($file, $_SERVER['argv'][3] . '/' . basename($file));
+  copy($file, $_SERVER['argv'][3]); // . '/' . basename($file)
   unlink($file);
 }
